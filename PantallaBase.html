@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de datillos</title>
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modelos.css">
+    <script src="js/angular.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Venta</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+        <accionesInputs>
+            <div>
+                <form action="Insertar" method="post">
+                    <label for="clave">Clave de venta</label> 
+                    <input type="number" name="clave" id="claveID"> 
+                    <label for="fecha">Fecha</label> <br>
+                    <input type="date" name="fecha" id="fechaVal" >
+                    <select name="categoria" id="categoriaType" >
+                        <option value="exact">Exactamente la fecha</option>
+                        <option value="menor">Antes de fecha</option>
+                        <option value="mayor">Despues de la fecha</option>
+                        <option value="semana">Hace 7 dias</option>
+                        <option value="mes">Hace el mes</option>
+                    </select>
+                    <label for="cliente">Cliente</label>
+                    <input type="text" name="cliente" id="clienteName">
+                    <label for="responsable">Responsable</label>
+                    <input type="text" name="responsable" id="responsableName">
+                </form>
+            </div>
+        </accionesInputs>
+        <botonesDeAccion>
+            <div>
+                <div><button>Vender</button></div> 
+                <div><button>Consultar</button></div> 
+                <div><button>Regresar</button></div> 
+                <div><button>Menu</button></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <div id="parteDerecho">
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Venta">
+                    <div class="cel1">#ID</div>
+                    <div class="cel2">Cliente</div>
+                    <div class="cel3">Responsable</div>
+                    <div class="cel4">Fecha</div>
+                    <div class="cel5">Vendidos</div>
+                </section>
+                <div id="cuerpoEntero">
+                    <section class="renglosElement_Venta">
+                        <div class="cel1">001</div>
+                        <div class="cel2">MrMrMangoHead</div>
+                        <div class="cel3">Kenji Gonzlez Hoshino</div>
+                        <div class="cel4">11 / 03 / 2021</div>
+                        <div class="cel5">5</div>
+                    </section>
+                    <section class="renglosElement_Venta"
+                        ng-init="mostElemento=false"
+                    >
+                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);">002</div>
+                        <div class="cel2">MrMrMangoHead</div>
+                        <div class="cel3">Kenji Gonzlez Hoshino</div>
+                        <div class="cel4">11 / 03 / 2021</div>
+                        <div class="cel5">5</div>
+                        <div class="elementComplete"
+                            ng-if="mostElemento"
+                        >
+                            <section>
+                                <p>id: 002</p>
+                                <p>Cliente: MrMrMangoHead</p>
+                                <p>Apleado: Kenji Gonzlez Hoshino</p>
+                                <p>Fecha: 11 / 03 / 2021</p>
+                                <p>Cantidad: 5</p>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                
+            </div>
+        </trablaInfo>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
