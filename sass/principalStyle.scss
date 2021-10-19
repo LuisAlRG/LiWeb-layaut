@@ -1,0 +1,101 @@
+@import 'w3';
+
+/*
+    Estilo general de la paguina
+*/
+
+//estilo del cuerpo
+body{
+    @extend .w3-container;
+    @extend .w3-row;
+}
+
+
+#parteIzquierdo{
+    @extend .w3-col;
+    @extend .l3;
+    @extend .m3;
+
+    //estilo del baner (donde sale el logo y la catgoria en laque estemos)
+    >banerSeccion{
+        >div{
+            @extend .w3-row;
+            >#logo{
+                @extend .w3-col;
+                @extend .l6;
+                @extend .s5;
+                width: 50%;
+                >img{
+                    width: 100%;
+                }
+            }
+            >#tituloSeccion{
+                @extend .w3-col;
+                @extend .l6;
+                @extend .m12;
+                @extend .s6;
+                >p{
+                    margin-top: 0;
+                    padding-left: 0.5em;
+                    @extend .w3-green;
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    //diseño de inputs
+    >accionesInputs{
+        >div{
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+    }
+
+    //estilo de los botones de acciones
+    >botonesDeAccion{
+        >div{
+            @extend .w3-row;
+            >div{
+                @extend .w3-col;
+                @extend .l12;
+                >button{
+                    @extend .w3-green;
+                    @extend .w3-button;
+                    width: 100%;
+                    margin: 5px 10px;
+                    //@extend .w3-margin;
+                    border-radius: 1em;
+                    font-size: 1.25em;
+                }
+            }
+        }
+    }
+}
+
+//estilo general de las formas de rellenado
+form{
+    input,select,textarea{
+        @extend .w3-input;
+        @extend .w3-border;
+        @extend .w3-round;
+    }
+}
+
+//etilo general de las tablas que aparezcan en la parte derecha
+#parteDerecho{
+    @extend .w3-col;
+    @extend .l9;
+    @extend .m9;
+    >tablaInfo{
+        >div{
+            @extend .w3-margin;
+            section{
+                >div{
+                    height: 3.5em;
+                }
+            }
+        }
+    }
+}
+
