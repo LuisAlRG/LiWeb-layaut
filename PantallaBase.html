@@ -12,7 +12,9 @@
 </head>
 <body ng-app="allApp" ng-controller="allController">
 
-    <div id="parteIzquierdo">
+    <div id="parteIzquierdo"
+        ng-init="showForm = false"
+    >
         <banerSeccion>
             <div>
                 <div id="logo">
@@ -24,9 +26,11 @@
                 <div class="resetFloat"></div>
             </div>
         </banerSeccion>
-        <accionesInputs>
+        <accionesInputs
+            ng-if="showForm"
+        >
             <div>
-                <form action="Insertar" method="post">
+                <form action="filtrar" method="post">
                     <label for="clave">Clave de venta</label> 
                     <input type="number" name="clave" id="claveID"> 
                     <label for="fecha">Fecha</label> <br>
@@ -48,8 +52,8 @@
         <botonesDeAccion>
             <div>
                 <div><button>Vender</button></div> 
-                <div><button>Consultar</button></div> 
-                <div><button>Regresar</button></div> 
+                <div><button ng-click="showForm=true" ng-show="!showForm" >Consultar</button></div> 
+                <div><button ng-click="showForm=false" ng-show="showForm" >Regresar</button></div> 
                 <div><button>Menu</button></div> 
             </div>
         </botonesDeAccion>
@@ -58,28 +62,28 @@
         <tablaInfo>
             <div>
                 <section id="tableTop_Venta">
-                    <div class="cel1">#ID</div>
-                    <div class="cel2">Cliente</div>
-                    <div class="cel3">Responsable</div>
-                    <div class="cel4">Fecha</div>
-                    <div class="cel5">Vendidos</div>
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Cliente</span> </div>
+                    <div class="cel3"> <span>Responsable</span> </div>
+                    <div class="cel4"> <span>Fecha</span> </div>
+                    <div class="cel5"> <span>Vendidos</span> </div>
                 </section>
                 <div id="cuerpoEntero">
                     <section class="renglosElement_Venta">
-                        <div class="cel1">001</div>
-                        <div class="cel2">MrMrMangoHead</div>
-                        <div class="cel3">Kenji Gonzlez Hoshino</div>
-                        <div class="cel4">11 / 03 / 2021</div>
-                        <div class="cel5">5</div>
+                        <div class="cel1"> <span>001</span> </div>
+                        <div class="cel2"> <span>MrMrMangoHead</span> </div>
+                        <div class="cel3"> <span>Kenji Gonzlez Hoshino</span> </div>
+                        <div class="cel4"> <span>11 / 03 / 2021</span> </div>
+                        <div class="cel5"> <span>5</span> </div>
                     </section>
                     <section class="renglosElement_Venta"
                         ng-init="mostElemento=false"
                     >
-                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);">002</div>
-                        <div class="cel2">MrMrMangoHead</div>
-                        <div class="cel3">Kenji Gonzlez Hoshino</div>
-                        <div class="cel4">11 / 03 / 2021</div>
-                        <div class="cel5">5</div>
+                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>002</span> </div>
+                        <div class="cel2"> <span>MrMrMangoHead</span> </div>
+                        <div class="cel3"> <span>Kenji Gonzlez Hoshino</span> </div>
+                        <div class="cel4"> <span>11 / 03 / 2021</span> </div>
+                        <div class="cel5"> <span>5</span> </div>
                         <div class="elementComplete"
                             ng-if="mostElemento"
                         >
@@ -95,7 +99,7 @@
                 </div>
                 
             </div>
-        </trablaInfo>
+        </tablaInfo>
     </div>
 
     <script src="js/main.js"></script>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de datillos</title>
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modelosLibros.css">
+    <script src="js/angular.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Venta</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+        <accionesInputs>
+            <div>
+                <form action="Insertar" method="post">
+                    <label for="clave">Clave del libreo</label> 
+                    <input type="number" name="clave" id="claveID"> 
+
+                    <label for="cliente">Cliente</label>
+                    <input type="text" name="cliente" id="clienteName">
+                    
+                    <label for="tituloLibro">Titulo</label> <br>
+                    <input type="date" name="tituloLibro" id="tituloLibro">
+                    
+                    <label for="precio">Precio</label>
+                    <input type="number" name="precio" id="pracioVal">
+
+                    <select name="categoria" id="categoriaType" >
+                        <option value="menor">Mayor al precio</option>
+                        <option value="mayor">Menor al precio</option>
+                    </select>
+                    
+                    <label for="responsable">Responsable</label>
+                    <input type="text" name="responsable" id="responsableName">
+
+                </form>
+            </div>
+        </accionesInputs>
+        <botonesDeAccion>
+            <div>
+                <div><button>Buscar</button></div> 
+                <div><button>Cancelar</button></div>
+            </div>
+        </botonesDeAccion>
+    </div>
+    <div id="parteDerecho">
+        <!-- Tabla de elementos disponibles -->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Libro">
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Titulo</span> </div>
+                    <div class="cel3"> <span>Autor</span> </div>
+                    <div class="cel4"> <span>Editorial</span> </div>
+                    <div class="cel5"> <span>Cantidad</span> </div>
+                    <div class="cel6"> <span>Aderir</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+                    <section class="rowsElement_Libro"
+                        ng-repeat="libros in listLibros track by $index";
+                        ng-init="mostElemento=false"
+                        ng-show="!libros.selected"
+                    >
+                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
+                        <div class="cel2"><span>{{libros.titulo}}</span></div>
+                        <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
+                        <div class="cel4"><span>{{libros.editorial}}</span></div>
+                        <div class="cel5"><span>{{libros.cantidad}}</span></div>
+                        <div class="cel6"><button id="aderirElemento" ng-click="libros.selected=true; listLibrosSelect.push(libros)">+</button></div>
+                        
+                        <div class="elementComplete"
+                            ng-show="mostElemento"
+                        >
+                            <section>
+                                <p>Id: {{libros.id}}</p>
+                                <p>Titulo: {{libros.titulo}}</p>
+                                <p>Precio: ${{libros.precio}} mx</p>
+                                <p>Autores:</p>
+                                <ul>
+                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                </ul>
+                                <p>Editorial: {{libros.editorial}}</p>
+                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                
+            </div>
+        </tablaInfo>
+
+        <!-- Tabla de elementos seleccionados -->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Libro">
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Titulo</span> </div>
+                    <div class="cel3"> <span>Autor</span> </div>
+                    <div class="cel4"> <span>Editorial</span> </div>
+                    <div class="cel5"> <span>Cantidad</span> </div>
+                    <div class="cel6"> <span>Aderir</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+                    <section class="rowsElement_Libro"
+                        ng-repeat="libros in listLibrosSelect track by $index";
+                        ng-init="mostElemento=false"
+                    >
+                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
+                        <div class="cel2"><span>{{libros.titulo}}</span></div>
+                        <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
+                        <div class="cel4"><span>{{libros.editorial}}</span></div>
+                        <div class="cel5"><span>{{libros.cantidad}}</span></div>
+                        <div class="cel6"><img src="img/basure.svg" alt="Bote de basura" ng-click="libros.selected=false; accionRemoverSeleccion($index)"></div>
+                        
+                        <div class="elementComplete"
+                            ng-show="mostElemento"
+                        >
+                            <section>
+                                <p>Id: {{libros.id}}</p>
+                                <p>Titulo: {{libros.titulo}}</p>
+                                <p>Precio: $ {{libros.precio}} mx</p>
+                                <p>Autores:</p>
+                                <ul>
+                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                </ul>
+                                <p>Editorial: {{libros.editorial}}</p>
+                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </tablaInfo>
+
+        <!-- Precio y opcion de comprar -->
+        <especialVenta>
+            <section>
+                <span> Precio total: ${{precioTotal}} MX </span>
+                <button rg-show="listLibrosSelect.length > 0"> Realizar venta </button>
+            </section>
+        </especialVenta>
+    </div>
+
+    
+</body>
+<script src="js/mainActVenta.js"></script>
+</html>
