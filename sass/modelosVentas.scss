@@ -15,7 +15,6 @@
                 border-bottom: 1px solid black;
                 >div{
                     @extend .w3-col;
-                    @extend .w3-center;
                     border-left: 1px solid black;
                 }
                 :first-child{
@@ -61,7 +60,6 @@
                     border-bottom: 1px solid black;
                     >div{
                         @extend .w3-col;
-                        @extend .w3-center;
                         overflow: hidden;
                     }
                     >.cel1{ //id
@@ -94,15 +92,22 @@
                         @extend .w3-hide-small;
                     }
                     .elementComplete{
+                        display:block;
+                        justify-content:baseline;
+                        align-items: center;
                         @extend .l12;
                         @extend .m12;
                         @extend .s12;
+                        max-height: fit-content;
                         height: auto;
                         section{
                             @extend .w3-display-container;
                             @extend .w3-card-2;
                             @extend .w3-margin;
-                            
+                            p{
+                                margin: 0px;
+                                text-align: left;
+                            }
                         }
                     }
                 }

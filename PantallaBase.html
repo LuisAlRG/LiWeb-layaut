@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla de datillos</title>
     <link rel="stylesheet" href="css/principalStyle.css">
-    <link rel="stylesheet" href="css/modelos.css">
+    <link rel="stylesheet" href="css/modelosVentas.css">
+    
     <script src="js/angular.min.js"></script>
-
+    <script src="js/jquery.min.js"></script>
 </head>
 <body ng-app="allApp" ng-controller="allController">
 
-    <div id="parteIzquierdo">
+    <div id="parteIzquierdo"
+        ng-init="showForm = false"
+    >
         <banerSeccion>
             <div>
                 <div id="logo">
@@ -24,9 +27,11 @@
                 <div class="resetFloat"></div>
             </div>
         </banerSeccion>
-        <accionesInputs>
+        <accionesInputs
+            ng-if="showForm"
+        >
             <div>
-                <form action="Insertar" method="post">
+                <form action="filtrar" method="post">
                     <label for="clave">Clave de venta</label> 
                     <input type="number" name="clave" id="claveID"> 
                     <label for="fecha">Fecha</label> <br>
@@ -48,8 +53,8 @@
         <botonesDeAccion>
             <div>
                 <div><button>Vender</button></div> 
-                <div><button>Consultar</button></div> 
-                <div><button>Regresar</button></div> 
+                <div><button ng-click="showForm=true" ng-show="!showForm" >Consultar</button></div> 
+                <div><button ng-click="showForm=false" ng-show="showForm" >Regresar</button></div> 
                 <div><button>Menu</button></div> 
             </div>
         </botonesDeAccion>
@@ -58,46 +63,36 @@
         <tablaInfo>
             <div>
                 <section id="tableTop_Venta">
-                    <div class="cel1">#ID</div>
-                    <div class="cel2">Cliente</div>
-                    <div class="cel3">Responsable</div>
-                    <div class="cel4">Fecha</div>
-                    <div class="cel5">Vendidos</div>
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Cliente</span> </div>
+                    <div class="cel3"> <span>Responsable</span> </div>
+                    <div class="cel4"> <span>Fecha</span> </div>
+                    <div class="cel5"> <span>Vendidos</span> </div>
                 </section>
                 <div id="cuerpoEntero">
                     <section class="renglosElement_Venta">
-                        <div class="cel1">001</div>
-                        <div class="cel2">MrMrMangoHead</div>
-                        <div class="cel3">Kenji Gonzlez Hoshino</div>
-                        <div class="cel4">11 / 03 / 2021</div>
-                        <div class="cel5">5</div>
-                    </section>
-                    <section class="renglosElement_Venta"
-                        ng-init="mostElemento=false"
-                    >
-                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);">002</div>
-                        <div class="cel2">MrMrMangoHead</div>
-                        <div class="cel3">Kenji Gonzlez Hoshino</div>
-                        <div class="cel4">11 / 03 / 2021</div>
-                        <div class="cel5">5</div>
-                        <div class="elementComplete"
-                            ng-if="mostElemento"
-                        >
+                        <div class="cel1"> <span>{{venta.id}}</span> </div>
+                        <div class="cel2"> <span>{{venta.cliente}}</span> </div>
+                        <div class="cel3"> <span>{{venta.responsable}}</span> </div>
+                        <div class="cel4"> <span>{{venta.fecha}}</span> </div>
+                        <div class="cel5"> <span>{{venta.vendidos}}</span> </div>
+                        <div class="elementComplete">
                             <section>
-                                <p>id: 002</p>
-                                <p>Cliente: MrMrMangoHead</p>
-                                <p>Apleado: Kenji Gonzlez Hoshino</p>
-                                <p>Fecha: 11 / 03 / 2021</p>
-                                <p>Cantidad: 5</p>
+                                <p>id: {{venta.id}}</p>
+                                <p>Cliente: {{venta.cliente}}</p>
+                                <p>Apleado: {{venta.responsable}}</p>
+                                <p>Fecha: {{venta.fecha}}</p>
+                                <p>Cantidad: {{venta.vendidos}}</p>
                             </section>
                         </div>
                     </section>
                 </div>
                 
             </div>
-        </trablaInfo>
+        </tablaInfo>
     </div>
 
-    <script src="js/main.js"></script>
+    
 </body>
+<script src="js/mainVentas.js"></script>
 </html>

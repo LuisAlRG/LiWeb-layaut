@@ -1,0 +1,38 @@
+svg:hover path.tapa{
+    animation: destapa 1s ease alternate ;
+}
+
+svg:hover path.cubo{
+    animation: rebota 1s ease alternate ;
+}
+
+@keyframes destapa {
+    20%{
+        transform: scaleX(1.1) scaley(0.8) translateX(-14px) translateY(120px);
+    }
+    30% {
+        transform: translateY(-80px) translateX(20px) rotatez(10deg);
+    }
+    75%{
+        transform: translateY(-80px) translateX(20px) rotatez(10deg);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
+}
+
+@keyframes rebota {
+    20%{
+        transform: scaleX(1.1) scaley(0.8) translateX(-14px) translateY(120px);
+    }
+    40%{
+        transform: scaleX(0.9) scaley(1.1) translateX(19px) translateY(-50px);
+    }
+    60%{
+        transform: scaleX(1) translate(0px);
+    }
+    80%{
+        transform: scaleX(1) translate(0px);
+    }
+}
