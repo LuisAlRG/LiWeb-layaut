@@ -98,12 +98,16 @@
                         @extend .l12;
                         @extend .m12;
                         @extend .s12;
+                        max-height: fit-content;
                         height: auto;
                         section{
                             @extend .w3-display-container;
                             @extend .w3-card-2;
                             @extend .w3-margin;
-                            
+                            p{
+                                margin: 0px;
+                                text-align: left;
+                            }
                         }
                     }
                 }

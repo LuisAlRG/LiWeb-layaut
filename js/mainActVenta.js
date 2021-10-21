@@ -1,13 +1,14 @@
 var app = angular.module('allApp',[]);
 var marcador = null;
 app.controller('allController',function($scope,$http){
+    //inicialisar valores globales
     $scope.listLibros = [
         {id:0,
             titulo:"El Poopero",
             autores:["chayanne","Ilum Ticks","uno mas","otro mas", "Nunca acabara"],
             editorial:"Nulle Illuminatus",
             cantidad:5, 
-            selected:false,
+            acabo:false,
             precio:320
         }
     ]
@@ -20,17 +21,30 @@ app.controller('allController',function($scope,$http){
             autores:["Luisito Rodriguez","Fransisco Imadero"],
             editorial:(i%2==0)?"Sumerville":"Prentice Hall",
             cantidad:30, 
-            selected:false,
+            acabo:false,
             precio:precioGenerado
         });
     }
     $scope.listLibrosSelect = []
 
+    $scope.precioTotal = 0;
 
 
     //funciones de llamada
+    $scope.accionAderirSeleccion = function(index){
+        $scope.listLibros[index].cantidad--;
+        if($scope.listLibros[index].cantidad<=0)
+            $scope.listLibros[index].acabo=true;
+        
+        //if(!$scope.listLibrosSelect.includes($scope.listLibros[index]))
+            $scope.listLibrosSelect.push($scope.listLibros[index]);
+    }
+
     $scope.accionRemoverSeleccion = function(index){
         $scope.listLibrosSelect.splice(index,1);
-        
+    }
+
+    $scope.mostrarBtnVenta = function(){
+        return $scope.listLibrosSelect.length > 0;
     }
 });

@@ -7,6 +7,7 @@
     <title>Pantalla de datillos</title>
     <link rel="stylesheet" href="css/principalStyle.css">
     <link rel="stylesheet" href="css/modelosLibros.css">
+    <link rel="stylesheet" href="css/svgAnimaciones.css">
     <script src="js/angular.min.js"></script>
 
 </head>
@@ -73,14 +74,17 @@
                     <section class="rowsElement_Libro"
                         ng-repeat="libros in listLibros track by $index";
                         ng-init="mostElemento=false"
-                        ng-show="!libros.selected"
+                        ng-show="!libros.acabo"
                     >
                         <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
                         <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                         <div class="cel4"><span>{{libros.editorial}}</span></div>
                         <div class="cel5"><span>{{libros.cantidad}}</span></div>
-                        <div class="cel6"><button id="aderirElemento" ng-click="libros.selected=true; listLibrosSelect.push(libros)">+</button></div>
+                        <div class="cel6">
+                            <button id="aderirElemento" 
+                            ng-click="accionAderirSeleccion($index)">+</button>
+                        </div>
                         
                         <div class="elementComplete"
                             ng-show="mostElemento"
@@ -111,8 +115,8 @@
                     <div class="cel2"> <span>Titulo</span> </div>
                     <div class="cel3"> <span>Autor</span> </div>
                     <div class="cel4"> <span>Editorial</span> </div>
-                    <div class="cel5"> <span>Cantidad</span> </div>
-                    <div class="cel6"> <span>Aderir</span> </div>
+                    <div class="cel5"> <span>Precio</span> </div>
+                    <div class="cel6"> <span>Quitar</span> </div>
                 </section>
                 <div id="cuerpoEntero">
                     <section class="rowsElement_Libro"
@@ -123,8 +127,22 @@
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
                         <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                         <div class="cel4"><span>{{libros.editorial}}</span></div>
-                        <div class="cel5"><span>{{libros.cantidad}}</span></div>
-                        <div class="cel6"><img src="img/basure.svg" alt="Bote de basura" ng-click="libros.selected=false; accionRemoverSeleccion($index)"></div>
+                        <div class="cel5"><span>{{ (libros.precio).toLocaleString('en-US', {style: 'currency', currency: 'USD',}) }}</span></div>
+                        <div class="cel6">
+                            <!-- <img src="img/basure.svg" alt="Bote de basura" ng-click="libros.selected=false; accionRemoverSeleccion($index)">-->
+                            <svg class="boteDeBasura" viewBox="-10 -10 380 510" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            ng-click="libros.selected=false; accionRemoverSeleccion($index)"
+                            >
+                                <path class="tapa" d="M0 110C0 87.9086 17.9086 70 40 70H310C332.091 70 350 87.9086 350 110V110H0V110Z" fill="black"/>
+                                <path class="tapa" d="M100 70C100 47.9086 117.909 30 140 30H210C232.091 30 250 47.9086 250 70V70H100V70Z" fill="black"/>
+                                
+                                <g class="cubo">
+                                    <path  d="M25.7257 466.583L0 119H44L70.6987 456.504C71.3158 464.305 77.8264 470.321 85.6519 470.321H95.2566C103.826 470.321 110.653 463.155 110.239 454.596L94 119H152.375V455.321C152.375 463.605 159.091 470.321 167.375 470.321H175V499H60.6303C42.3025 499 27.0785 484.861 25.7257 466.583Z" fill="black"/>
+                                    <path  d="M324.274 466.583L350 119H306L279.301 456.504C278.684 464.305 272.174 470.321 264.348 470.321H254.743C246.174 470.321 239.347 463.155 239.761 454.596L256 119H197.625V455.321C197.625 463.605 190.909 470.321 182.625 470.321H175V499H289.37C307.697 499 322.921 484.861 324.274 466.583Z" fill="black"/>
+                           
+                                </g>
+                                 </svg>
+                        </div>
                         
                         <div class="elementComplete"
                             ng-show="mostElemento"
@@ -151,7 +169,7 @@
         <especialVenta>
             <section>
                 <span> Precio total: ${{precioTotal}} MX </span>
-                <button rg-show="listLibrosSelect.length > 0"> Realizar venta </button>
+                <button ng-show="mostrarBtnVenta();"> Realizar venta </button>
             </section>
         </especialVenta>
     </div>
