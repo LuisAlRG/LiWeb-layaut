@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceder a la venta</title>
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modeloLibrosVendidos.css">
+    <link rel="stylesheet" href="css/svgAnimaciones.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body ng-app="allApp" ng-controller="allController">
+
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Venta</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+        
+        <botonesDeAccion>
+            <div>
+                <p>Metodo de pago:</p>
+                <div><button>En efectivo</button></div>
+                <div><button>Con tarjeta</button></div>
+                <div><button>Con credito</button></div>
+                
+                <div><button>Cancelar</button></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <div id="parteDerecho">
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Libro">
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Titulo</span> </div>
+                    <div class="cel3"> <span>Autor</span> </div>
+                    <div class="cel4"> <span>Editorial</span> </div>
+                    <div class="cel5"> <span>Precio</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+                    <section class="rowsElement_Libro"
+                        ng-repeat="libros in listLibrosSelect track by $index";
+                        ng-init="mostElemento=false"
+                    >
+                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
+                        <div class="cel2"><span>{{libros.titulo}}</span></div>
+                        <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
+                        <div class="cel4"><span>{{libros.editorial}}</span></div>
+                        <div class="cel5"><span>{{ (libros.precio).toLocaleString('en-US', {style: 'currency', currency: 'USD',}) }}</span></div>
+                        
+                        
+                        
+                        <div class="elementComplete"
+                            ng-show="mostElemento"
+                        >
+                            <section>
+                                <p>Id: {{libros.id}}</p>
+                                <p>Titulo: {{libros.titulo}}</p>
+                                <p>Precio: $ {{libros.precio}} mx</p>
+                                <p>Autores:</p>
+                                <ul>
+                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                </ul>
+                                <p>Editorial: {{libros.editorial}}</p>
+                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <section id="tableBottom_Libro">
+
+                </section>
+            </div>
+        </tablaInfo>
+
+        <tablaPago>
+            <section>
+                <div class="cel1"> > </div>
+                <div class="cel2"><span>Total:</span></div>
+                <div class="cel3"><span> 00:00</span></div>
+            </section>
+        </tablaPago>
+    </div>
+
+    
+</body>
+<script src="js/mainVentasPagos.js"></script>
+</html>

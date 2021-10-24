@@ -1,0 +1,30 @@
+<svg  viewBox="0 0 200 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="26" y="132" width="143" height="6" fill="white"/>
+    <rect x="63" y="18" width="32" height="112" fill="white"/>
+    <rect x="65" y="28" width="28" height="5" fill="#008000"/>
+    <rect x="65" y="112" width="28" height="4" fill="#008000"/>
+    <rect x="63" y="120" width="32" height="2" fill="#008000"/>
+    <g class="libroMovible">
+        <path d="M132 15H102L116 10H146L132 15Z" fill="white"/>
+        <path d="M133 18L133 128.5L146 117.5L146 12.5L133 18Z" fill="white"/>
+    
+        <rect  x="100" y="18" width="32" height="112" fill="white"/>
+        <rect x="102" y="28" width="28" height="5" fill="#008000"/>
+        <rect x="102" y="112" width="28" height="4" fill="#008000"/>
+        <rect x="100" y="120" width="32" height="2" fill="#008000"/>
+    </g>
+    <rect x="26" y="18" width="32" height="112" fill="white"/>
+    <rect x="28" y="28" width="28" height="5" fill="#008000"/>
+    <rect x="28" y="112" width="28" height="4" fill="#008000"/>
+    <rect x="26" y="120" width="32" height="2" fill="#008000"/>
+    <rect x="137" y="18" width="32" height="112" fill="white"/>
+    <rect x="139" y="28" width="28" height="5" fill="#008000"/>
+    <rect x="139" y="112" width="28" height="4" fill="#008000"/>
+    <rect x="137" y="120" width="32" height="2" fill="#008000"/>
+    <path d="M172 14H26L40 7H186L172 14Z" fill="white"/>
+    <path d="M174 16.95L174 156L187 156L187 10L174 16.95Z" fill="white"/>
+    <g class="fondoFalso">
+        <rect x="132" y="15" width="5" height="114" fill="#008000"/>
+        <rect x="100" y="14" width="62" height="4" fill="#008000"/>
+    </g>
+</svg>
