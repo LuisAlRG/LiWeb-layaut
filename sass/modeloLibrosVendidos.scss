@@ -1,0 +1,150 @@
+@import 'w3';
+
+/*
+    tablaInfo
+    Aqui estan el estilo de la tabla de Ventas Simples
+*/
+
+:root{
+    --color-primario: #008000;
+    //green
+    --color-letra: #ffffff;
+}
+
+.my-green-color{
+    background: var(--color-primario);
+    color: var(--color-letra);
+}
+
+#parteDerecho{
+    >tablaInfo{
+        >div{
+            section, div>section.rowsElement_Libro{
+                >.cel1{ //id
+                    @extend .l1;
+                    @extend .m1;
+                    @extend .s2;
+                }
+                >.cel2{ //titulo
+                    @extend .l3;
+                    @extend .m4;
+                    @extend .s4;
+                }
+                >.cel3{ //autor
+                    @extend .l4;
+                    @extend .m4;
+                    @extend .w3-hide-small;
+                    
+                }
+                >.cel4{ //editorial
+                    @extend .l2;
+                    @extend .w3-hide-medium;
+                    @extend .w3-hide-small;
+                }
+                >.cel5{ //precio
+                    @extend .l2;
+                    @extend .m3;
+                    @extend .s3;
+                }
+            }
+
+            //estilo del encabezado
+            >section#tableTop_Libro{
+                @extend .w3-row;
+                @extend .my-green-color;
+                border-bottom: 1px solid black;
+                margin-right: 16px;
+                >div{
+                    @extend .w3-col;
+                    border-left: 1px solid black;
+                }
+                :first-child{
+                    border-left: 0px none green;
+                }
+            }
+            //estilo del cuerpo de la taba
+            >div#cuerpoEntero{
+                height: 480px;
+                
+                //estido de renglon de la tabla
+                >section.rowsElement_Libro{
+                    @extend .w3-row;
+                    border-bottom: 1px solid black;
+                    >div{
+                        @extend .w3-col;
+                        overflow: hidden;
+                    }
+                    >.cel6{
+                        button#aderirElemento{
+                            @extend .w3-button;
+                            @extend .w3-round-xxlarge;
+                            @extend .my-green-color;
+                        }
+                    }
+                    >.elementComplete{
+                        display:block;
+                        justify-content:baseline;
+                        align-items: center;
+                        @extend .l12;
+                        @extend .m12;
+                        @extend .s12;
+                        max-height: fit-content;
+                        height: auto;
+                        
+                        section{
+                            @extend .w3-display-container;
+                            @extend .w3-card-2;
+                            @extend .w3-margin;
+                            padding-left: 1em;
+                            p{
+                                margin: 0px;
+                                text-align: left;
+                            }
+                            ul{
+                                margin: 0px;
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+    }
+    >tablaPago{
+        >section{
+            @extend .w3-row;
+            border-bottom: 1px solid black;
+            margin-right: 16px;
+            >div{
+                @extend .w3-col;
+                border-left: 1px solid black;
+                border-top: 1px solid grey;
+                
+                font-size: 1em;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                    /*span{
+                        //flex: 0 0 0px;
+                    }*/
+                text-align: center;
+            }
+            :first-child{
+                border-left: 0px none green;
+            }
+            div.cel1{
+                @extend .l8;
+                
+            }
+            div.cel2{
+                @extend .l2;
+            }
+            div.cel3{
+                @extend .l2;
+            }
+        }
+    }
+}

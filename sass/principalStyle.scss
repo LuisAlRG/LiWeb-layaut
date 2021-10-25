@@ -4,6 +4,17 @@
     Estilo general de la paguina
 */
 
+:root{
+    --color-primario: #008000;
+    //green
+    --color-letra: #ffffff;
+}
+
+.my-green-color{
+    background: var(--color-primario);
+    color: var(--color-letra);
+}
+
 //estilo del cuerpo
 body{
     @extend .w3-container;
@@ -15,30 +26,29 @@ body{
     @extend .w3-col;
     @extend .l3;
     @extend .m3;
-
+    margin-top: 8px;
     //estilo del baner (donde sale el logo y la catgoria en laque estemos)
     >banerSeccion{
         >div{
             @extend .w3-row;
             >#logo{
                 @extend .w3-col;
-                @extend .l6;
+                @extend .l4;
                 @extend .s5;
-                width: 50%;
                 >img{
                     width: 100%;
                 }
             }
             >#tituloSeccion{
                 @extend .w3-col;
-                @extend .l6;
+                @extend .l8;
                 @extend .m12;
                 @extend .s6;
                 >p{
                     margin-top: 0;
                     padding-left: 0.5em;
-                    @extend .w3-green;
-                    font-size: 2em;
+                    @extend .my-green-color;
+                    font-size: 1.5em;
                 }
             }
         }
@@ -57,14 +67,18 @@ body{
     >botonesDeAccion{
         >div{
             @extend .w3-row;
+            >p{
+                font-size: 1.25em;
+                margin-bottom: 0px;
+            }
             >div{
                 @extend .w3-col;
                 @extend .l12;
                 >button{
-                    @extend .w3-green;
+                    @extend .my-green-color;
                     @extend .w3-button;
                     width: 100%;
-                    margin: 5px 10px;
+                    margin: 5px 0px;
                     //@extend .w3-margin;
                     border-radius: 1em;
                     font-size: 1.25em;
@@ -122,8 +136,40 @@ form{
             
             /* Handle */
             ::-webkit-scrollbar-thumb {
-                background: #4CAF50;
+                background: var(--color-primario);;
                 border-radius: 8px;
+            }
+        }
+    }
+    >botonesDeRedireccion{
+        >div{
+            //@extend .w3-container;
+            @extend .w3-row;
+            >section{
+                @extend .w3-col;
+                @extend .w3-padding;
+                @extend .l4;
+                @extend .m6;
+                @extend .s12;
+                >div{
+                    @extend .w3-padding;
+                    @extend .w3-button;
+                    @extend .my-green-color;
+                    border-radius: 1em;
+                    font-size: 1.25em;
+                    height: 10em;
+                    width: 100%;
+
+                    
+
+                    >svg{
+                        height: 5em;
+                    }
+                    >p{
+                        text-align: center;
+                    }
+                }
+                
             }
         }
     }

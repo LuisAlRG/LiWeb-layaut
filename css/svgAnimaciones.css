@@ -40,3 +40,167 @@ svg:hover g.cubo{
         transform: scaleX(1) translate(0px);
     }
 }
+
+/*Icono de venta*/
+
+div:hover>svg path.dinero{
+    animation: saltito-pesito 1s ease alternate;
+}
+div:hover>svg circle.sombraD{
+    animation: sombra-pesito 1s ease alternate;
+    animation-fill-mode: forwards;
+}
+div:hover>svg rect.texto1D{
+    animation: texto-pesito 0.5s ease-in normal  ;
+    animation-fill-mode: forwards;
+}
+div:hover>svg rect.texto2D{
+    animation: texto-pesito 0.6s ease-in normal ;
+    animation-fill-mode: forwards;
+}
+div:hover>svg rect.texto3D{
+    animation: texto-pesito 0.7s ease-in normal ;
+    animation-fill-mode: forwards;
+}
+div:hover>svg rect.texto4D{
+    animation: texto-pesito 0.8s ease-in normal ;
+    animation-fill-mode: forwards;
+}
+div:hover>svg rect.texto5D{
+    animation: texto2-pesito 0.9s ease-in normal ;
+    animation-fill-mode: forwards;
+}
+
+@keyframes saltito-pesito{
+    
+    20%{
+        transform-origin:center;
+        transform: scaleY(0.7) translateY(15px);
+    }
+    40%{
+        transform-origin:center;
+        transform: scaleY(1.2) translateY(-15px);
+    }
+    80%{
+        transform-origin:center;
+        transform: scaleY(0.95) translateY(0);
+    }
+    100%{
+        transform-origin:center;
+        transform: scaleY(1) translateY(0);
+    }
+}
+
+@keyframes sombra-pesito{
+    90%{
+        transform: translateX(20px) translateY(10px);
+    }
+    100%{
+        transform: translateX(10px) translateY(5px);
+    }
+}
+
+@keyframes texto-pesito{
+    100%{
+        transform: translateX(110px);
+        
+    }
+}
+
+@keyframes texto2-pesito{
+    100%{
+        transform: translateX(200px);
+        
+    }
+}
+
+/*Icono de libros*/
+
+div:hover>svg g.libroMovible{
+    animation: salirse-libro 1s ease normal;
+    animation-fill-mode: forwards;
+}
+div:hover>svg g.libroMovible rect, g.libroMovible path{
+    fill: green;
+}
+div:hover>svg g.fondoFalso rect{
+    fill: lightgrey;
+}
+
+@keyframes salirse-libro {
+    100%{
+        transform: translateX(-10px) translateY(8px);
+    }
+}
+
+/*Icono de empleados*/
+
+div:hover>svg g.principalE circle,div:hover>svg g.principalE path{
+    fill: #008000;
+}
+
+div:hover>svg g.izquierdoE{
+    animation: desplasar-der-empleado 1s ease normal;
+    animation-fill-mode: forwards;
+}
+div:hover>svg g.izquierdoE circle,div:hover>svg g.izquierdoE path{
+    fill-opacity: 0.9;
+}
+div:hover>svg g.derechoE{
+    animation: desplasar-izq-empleado 1s ease normal;
+    animation-fill-mode: forwards;
+}
+div:hover>svg g.derechoE circle,div:hover>svg g.derechoE path{
+    fill-opacity: 0.9;
+}
+
+@keyframes desplasar-der-empleado {
+    100%{
+        transform: translateX(50px);
+    }
+}
+@keyframes desplasar-izq-empleado {
+    100%{
+        transform: translateX(-50px);
+    }
+}
+
+/*icono de historial*/
+
+
+div:hover>svg rect.targetaR {
+    animation: targeta-moverse-historial 1s ease-in normal;
+    animation-fill-mode: forwards;
+}
+
+div:hover>svg path.marcoR{
+    animation: brillo-historial 1s ease normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes targeta-moverse-historial {
+    40%{
+        transform: translateX(150px);
+    }
+    100%{
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes brillo-historial {
+    0%{
+        fill: #008000;
+    }
+    30%{
+        fill: #008000;
+    }
+    35%{
+        fill: #ddffdd;
+    }
+    60%{
+        fill: #008000;
+    }
+    100%{
+        fill: #008000;
+    }
+}

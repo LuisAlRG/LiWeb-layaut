@@ -5,14 +5,26 @@
     Aqui estan el estilo de la tabla de Ventas Simples
 */
 
+:root{
+    --color-primario: #008000;
+    //green
+    --color-letra: #ffffff;
+}
+
+.my-green-color{
+    background: var(--color-primario);
+    color: var(--color-letra);
+}
+
 #parteDerecho{
     >tablaInfo{
         >div{
             //estilo del encabezado
             >section#tableTop_Venta{
                 @extend .w3-row;
-                @extend .w3-green;
+                @extend .my-green-color;
                 border-bottom: 1px solid black;
+                margin-right: 16px;
                 >div{
                     @extend .w3-col;
                     border-left: 1px solid black;
