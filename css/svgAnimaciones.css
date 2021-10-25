@@ -164,3 +164,43 @@ div:hover>svg g.derechoE circle,div:hover>svg g.derechoE path{
         transform: translateX(-50px);
     }
 }
+
+/*icono de historial*/
+
+
+div:hover>svg rect.targetaR {
+    animation: targeta-moverse-historial 1s ease-in normal;
+    animation-fill-mode: forwards;
+}
+
+div:hover>svg path.marcoR{
+    animation: brillo-historial 1s ease normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes targeta-moverse-historial {
+    40%{
+        transform: translateX(150px);
+    }
+    100%{
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes brillo-historial {
+    0%{
+        fill: #008000;
+    }
+    30%{
+        fill: #008000;
+    }
+    35%{
+        fill: #ddffdd;
+    }
+    60%{
+        fill: #008000;
+    }
+    100%{
+        fill: #008000;
+    }
+}
