@@ -1,5 +1,33 @@
 var app = angular.module('allApp',[]);
 var marcador = null;
+
+$("tablaInfo.elementoDisponible>div>#cuerpoEntero>section").attr(
+    {
+        'ng-repeat':"libros in listLibros track by $index",
+        'ng-init':"mostElemento=false",
+        'ng-show':"!libros.acabo"
+    }
+);
+
+$("tablaInfo.elementoDisponible>div>#cuerpoEntero>section>.elementComplete").attr(
+    {
+        'ng-if':"mostElemento"
+    }
+);
+
+$("tablaInfo.elementoSeleccionado>div>#cuerpoEntero>section").attr(
+    {
+        'ng-repeat':"libros in listLibrosSelect track by $index",
+        'ng-init':"mostElemento=false"
+    }
+);
+
+$("tablaInfo.elementoSeleccionado>div>#cuerpoEntero>section>.elementComplete").attr(
+    {
+        'ng-if':"mostElemento"
+    }
+);
+
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listLibros = [

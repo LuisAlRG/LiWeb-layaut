@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/principalStyle.css">
     <link rel="stylesheet" href="css/modeloLibros.css">
     <link rel="stylesheet" href="css/svgAnimaciones.css">
+
     <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 </head>
 <body ng-app="allApp" ng-controller="allController">
@@ -60,7 +62,7 @@
     </div>
     <div id="parteDerecho">
         <!-- Tabla de elementos disponibles -->
-        <tablaInfo>
+        <tablaInfo class="elementoDisponible">
             <div>
                 <section id="tableTop_Libro">
                     <div class="cel1"> <span>#ID</span> </div>
@@ -72,9 +74,6 @@
                 </section>
                 <div id="cuerpoEntero">
                     <section class="rowsElement_Libro"
-                        ng-repeat="libros in listLibros track by $index";
-                        ng-init="mostElemento=false"
-                        ng-show="!libros.acabo"
                     >
                         <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
@@ -87,7 +86,6 @@
                         </div>
                         
                         <div class="elementComplete"
-                            ng-show="mostElemento"
                         >
                             <section>
                                 <p>Id: {{libros.id}}</p>
@@ -108,7 +106,7 @@
         </tablaInfo>
 
         <!-- Tabla de elementos seleccionados -->
-        <tablaInfo>
+        <tablaInfo class="elementoSeleccionado">
             <div>
                 <section id="tableTop_Libro">
                     <div class="cel1"> <span>#ID</span> </div>
@@ -120,8 +118,6 @@
                 </section>
                 <div id="cuerpoEntero">
                     <section class="rowsElement_Libro"
-                        ng-repeat="libros in listLibrosSelect track by $index";
-                        ng-init="mostElemento=false"
                     >
                         <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
@@ -145,7 +141,6 @@
                         </div>
                         
                         <div class="elementComplete"
-                            ng-show="mostElemento"
                         >
                             <section>
                                 <p>Id: {{libros.id}}</p>
