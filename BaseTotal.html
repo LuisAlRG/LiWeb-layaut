@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Total de todo lo que tengamos</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="css/principalStyle.css">
+
+    <!-- 
+        Probablemetne existan otrashojas de estilo (css) que se agregen aqui, 
+        como elestilo de tabla que son diferentes por cada tabla (tamaño de columnas , que columnas se esconden o se muestran)
+        regularmente con el nombre de "modelo <algo>"
+    -->
+
+    <!-- Declaracion de librerias para la parte de programacion y elementos dinamicos de la pantalla -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!--
+        Parte Izquierdo (#parteIzquierdo)
+            En este seencuentra todos los elementos 
+            que deven de estar en la derecha de la pantalla
+
+            Por lo general lleva:
+                >banerSeccion
+                >accionesInputs (algunos no lo tienen y en general esta oculto al oprimr cierto boton)
+                >botonesDeAccion
+
+    -->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!--
+                Baner Seccion (banerSeccion)
+                    En este elemento html se encuentra el baner de la ventana el cual 
+                    simplemente tiene el titulo del modulo en los que nos encontramos
+
+                    Contiene:
+                        >logo: imagen de nuestro logo
+                        >tituloSeccion: titulo del modulo entradoo
+                        >resetFloat: resetea un cierto elemento flotante
+            -->
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Modulo</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!--
+                Acciones de Inputs (accionesInputs)
+                    Este elemento html se encuentran los impot se formas para consultas o 
+                    cualquier peticion que se requiera, simplemente contiene el elemento 
+                    form pero cada forma tuene sus propios detalles de imput 
+            -->
+            <div>
+                <form action="accion" method="post">
+                    <label for="atributo">Atributo</label> 
+                    <input type="text" name="atributo" id="atributo"> 
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--
+                Botones de accion (botonesDeAccion)
+                    Este elemento de html se encuentra los botones que realisaran haccines, 
+                    tanto como regresar de pantalla o hacer algun tipo de accion que reacomode
+                    la situacion
+
+                    Posible opciones de botones:
+                        >Menu       Bastante Comun: 
+                            boton que te regesa a la pantalla de menu 
+                        >Regresar   Comun: 
+                            boton que te regresa a una pantalla antes de la actual (claramente estara en las pantallas de sub secciones)
+                        >Consultar  Comun: 
+                            boton que despliega el elemento que te permite realizar consultas en la tabla de elementos
+                        >Buscar     Si esta Consultar: 
+                            boton que aplica la consulta con los datos ingresado de los inputs
+                        >Cancelar   Si esta Consultar: Boton que cansela el estado de Consulta de la pantalla
+
+                    Nota: Regresar y Menu deven de estar en el mas abajo de las opciones
+            -->
+            <div>
+                <div><button>Boton</button></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!--
+        Parte Derecho (#parteDerecho)
+            En este se encuentras los elementos tipo tabla
+            que se muestra en gan parte de la derecha
+
+            Por lo general lleva:
+                >tablaInfo
+            
+            Nota, esta seccion es donde especialemnte se aplica 
+            los estilos que comiensa con "modelo"
+    -->
+    <div id="parteDerecho">
+        <!--
+            Tabla Info (tablaInfo)
+            En este elemento html es el que se usa para darle forma a la tabla
+            Su estructura es simple
+            En la seccion de "tableTop_<elemento de interes>" tiene por separado 
+                el atributo de la clase modelo, haciendolo el encabezado de las 
+                columnas de la tabla.
+                Puede aver un maximo de 6 elementos (por preferencia visuales)
+                el tamaño se especifica en su hoja de clase de modelo.scss, por lo 
+                que deve de tener una clae racionada a la celda, como seria "cel1","cel2"..."celn"
+                La razon por la que se usa scss es para poder eredar la responsividad de una clase
+                de w3, por lo que cada selda se le define el tamaño que ocupara de una tabla de 12 
+                columnas, me explico, se extiende con las clases ¨l<numero>¨(pantalla gande) , "m<numero>"(pantalla media) y "s<numero>"(pantalla pequeña/ celular) 
+                si quisieramos una tabla de 6 columnas de ancho igual, se tendia que poner en la hoja cscc
+                @extend .l2; a cada clase "celn" que lo requerise, asi como si queremos que una columna sea
+                mas ancha se trataria de repartir los valores entre ellos.
+                tambien aclaroque una de las columnas se pueden ocultar al hacer la pantalla mas pequeña
+                por lo que recomiendo que especifique cuales valores consideren ineseario de ver en pantalla pequeña
+
+            En la seccion de "#cuerpoEntero" apareceran las filas/ dato elemento de la lista
+                de elementos desplegable para la pantalla.
+                gracias a que agregamos js angular, podemos hacr que los elementos que este en 
+                una lista de javascript, facilitandonos para poderlo ver en pantalla, por esa 
+                razones tiene esos atributos "ng-<algo>" y atributos entre corchetes
+
+            dentro de "#cuerpoEntero" esta la seccion "rowsElement_<elemento de interes>" el cual es
+                el elemento que se repetira por cada elemento mostrable en tabla, sige las mismas reglas de 
+                "tableTop_<elemento de interes>" tansolo que, deve de tener la misma cantidad de columnas, mas una
+                el cual es el que dice class="elementComplete" el cual es una seccion que tiene un apartado 
+                desplegable con toda la informacion del mismo elemento de la fila/ dato elemento de sea manera
+                nos aseguramos que se pueda consultar toda su informacion sin problema al hacerle click
+        -->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Libro">
+                    <!-- cada columna deve tener la clase "cel<numero>" -->
+                    <div class="cel1"> <span>Element</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+
+                    <section class="rowsElement_Libro"
+                        ng-repeat="element in listElement track by $index";
+                        ng-init="mostElemento=false"
+                    >
+                        <!-- cada columna deve tener la clase "cel<numero>" -->
+                        <div class="cel1"><span>{{element.atributo}}</span></div>
+                        
+                        <div class="elementComplete"
+                            ng-show="mostElemento"
+                        >
+                            <section>
+                                <p>Atributo: {{element.atributo}}</p>
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </tablaInfo>
+
+    </div>
+
+    
+</body>
+
+<!--
+    script del final
+        siempre abra un escript al final el cual funciona para activar el aditamiento js angular
+        el archivo que apunta en este caso es un ejemplo de activacion y declaracion deun elemento
+        lista para la tabla
+-->
+<script src="js/main.js"></script>
+
+
+</html>

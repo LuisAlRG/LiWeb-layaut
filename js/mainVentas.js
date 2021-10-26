@@ -1,19 +1,21 @@
 var app = angular.module('allApp',[]);
 var marcador = null;
 
+    
+
     $("tablaInfo>div>div>section").attr(
         {
             'ng-repeat':"venta in listVenta track by $index",
-            'ng-init':"mostElemento=false"
+            'ng-init':"mostElemento = false;"
         }
     );
 
-    $("tablaInfo>div>div>section>div.cel1").attr(
-        {'ng-click': "mostElemento=(mostElemento ? false : true);"}
+    $("tablaInfo>div>div>section>div.cel1>button").attr(
+        {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
     );
 
     $("tablaInfo>div>div>section>div.elementComplete").attr(
-        {'ng-if':"mostElemento"}
+        {'ng-if':"mostElemento && indxSelecionado == $index"}
     );
 
     app.controller('allController',function($scope,$http){
@@ -35,9 +37,19 @@ var marcador = null;
     
         $scope.listVentaMostrado=[];
 
+        $scope.indxSelecionado = 0;
+
         //funciones
         $scope.formatoFecha = function( laFecha ){
             let cdena = venta.fecha.getDate() +"/"+ venta.fecha.getMonth() +"/"+ venta.fecha.getFullYear() ;
             return cdena;
+        }
+
+        $scope.setIndxSelecionado = function(elIndex){
+            $scope.indxSelecionado = elIndex;
+        }
+
+        $scope.cambiarSelectedIndex = function(elIndex){
+            return $scope.indxSelecionado == elIndex;
         }
     });
