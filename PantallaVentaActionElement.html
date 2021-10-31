@@ -64,15 +64,19 @@
                             ng-show="mostElemento"
                         >
                             <section>
-                                <p>Id: {{libros.id}}</p>
-                                <p>Titulo: {{libros.titulo}}</p>
-                                <p>Precio: $ {{libros.precio}} mx</p>
-                                <p>Autores:</p>
-                                <ul>
-                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
-                                </ul>
-                                <p>Editorial: {{libros.editorial}}</p>
-                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                <div>
+                                    <p>Id: {{libros.id}}</p>
+                                    <p>Titulo: {{libros.titulo}}</p>
+                                    <p>Precio: $ {{libros.precio}} mx</p>
+                                    <p>Editorial: {{libros.editorial}}</p>
+                                    <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                </div>
+                                <div>
+                                    <p>Autores:</p>
+                                    <ul>
+                                        <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                    </ul>
+                                </div>
 
                             </section>
                         </div>

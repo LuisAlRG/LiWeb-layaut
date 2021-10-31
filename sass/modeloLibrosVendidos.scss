@@ -82,27 +82,15 @@
                         }
                     }
                     >.elementComplete{
-                        display:block;
-                        justify-content:baseline;
-                        align-items: center;
-                        @extend .l12;
-                        @extend .m12;
-                        @extend .s12;
-                        max-height: fit-content;
-                        height: auto;
-                        
                         section{
-                            @extend .w3-display-container;
-                            @extend .w3-card-2;
-                            @extend .w3-margin;
-                            padding-left: 1em;
-                            p{
-                                margin: 0px;
-                                text-align: left;
-                            }
-                            ul{
-                                margin: 0px;
-                                text-align: left;
+                            
+                            >div{
+                                display: block;
+                                @extend .w3-col;
+                                @extend .l6;
+                                @extend .m6;
+                                @extend .s12;
+                                max-height: fit-content;
                             }
                         }
                     }

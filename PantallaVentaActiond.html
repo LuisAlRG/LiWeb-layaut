@@ -88,15 +88,19 @@
                         <div class="elementComplete"
                         >
                             <section>
-                                <p>Id: {{libros.id}}</p>
-                                <p>Titulo: {{libros.titulo}}</p>
-                                <p>Precio: ${{libros.precio}} mx</p>
-                                <p>Autores:</p>
-                                <ul>
-                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
-                                </ul>
-                                <p>Editorial: {{libros.editorial}}</p>
-                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                <div>
+                                    <p>Id: {{libros.id}}</p>
+                                    <p>Titulo: {{libros.titulo}}</p>
+                                    <p>Precio: $ {{libros.precio}} mx</p>
+                                    <p>Editorial: {{libros.editorial}}</p>
+                                    <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                </div>
+                                <div>
+                                    <p>Autores:</p>
+                                    <ul>
+                                        <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                    </ul>
+                                </div>
                             </section>
                         </div>
                     </section>
@@ -109,7 +113,7 @@
         <tablaInfo class="elementoSeleccionado">
             <div>
                 <section id="tableTop_Libro">
-                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel1" > <span>#ID</span> </div>
                     <div class="cel2"> <span>Titulo</span> </div>
                     <div class="cel3"> <span>Autor</span> </div>
                     <div class="cel4"> <span>Editorial</span> </div>
@@ -143,15 +147,19 @@
                         <div class="elementComplete"
                         >
                             <section>
-                                <p>Id: {{libros.id}}</p>
-                                <p>Titulo: {{libros.titulo}}</p>
-                                <p>Precio: $ {{libros.precio}} mx</p>
-                                <p>Autores:</p>
-                                <ul>
-                                    <li ng-repeat="autor in libros.autores"> {{autor}}</li>
-                                </ul>
-                                <p>Editorial: {{libros.editorial}}</p>
-                                <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                <div>
+                                    <p>Id: {{libros.id}}</p>
+                                    <p>Titulo: {{libros.titulo}}</p>
+                                    <p>Precio: $ {{libros.precio}} mx</p>
+                                    <p>Editorial: {{libros.editorial}}</p>
+                                    <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                </div>
+                                <div>
+                                    <p>Autores:</p>
+                                    <ul>
+                                        <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                    </ul>
+                                </div>
 
                             </section>
                         </div>

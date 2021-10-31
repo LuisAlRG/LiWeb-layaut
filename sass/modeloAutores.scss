@@ -2,7 +2,7 @@
 
 /*
     tablaInfo
-    Aqui estan el estilo de la tabla de Ventas Simples
+    Aqui estan el estilo de la tabla de Autores Simples
 */
 
 :root{
@@ -16,65 +16,35 @@
     color: var(--color-letra);
 }
 
-#parteIzquierdo{
-    >accionesInputs{
-        >div>form{
-            @extend .w3-row;
-            >div#claveSection{
-                @extend .w3-col;
-                @extend .l6;
-                @extend .m12;
-                @extend .s6;
-            }
-            >div#edicionSection{
-                @extend .w3-col;
-                @extend .l6;
-                @extend .m12;
-                @extend .s6;
-            }
-        }
-    }
-}
-
 #parteDerecho{
     >tablaInfo{
         >div{
-            section, div>section.rowsElement_Libro{
+            section, div>section.rowsElement_Autor{
                 >.cel1{ //id
-                    @extend .l1;
-                    @extend .m1;
+                    @extend .l2;
+                    @extend .m2;
                     @extend .s2;
                 }
-                >.cel2{ //titulo
-                    @extend .l3;
+                >.cel2{ //nombre
+                    @extend .l4;
                     @extend .m4;
                     @extend .s4;
                 }
-                >.cel3{ //autor
-                    @extend .l3;
-                    @extend .m3;
-                    @extend .w3-hide-small;
+                >.cel3{ //apellido
+                    @extend .l5;
+                    @extend .m4;
+                    @extend .s4;
                     
                 }
-                >.cel4{ //editorial
-                    @extend .l2;
-                    @extend .w3-hide-medium;
-                    @extend .w3-hide-small;
-                }
-                >.cel5{ //cantidad
-                    @extend .l2;
-                    @extend .m2;
-                    @extend .s3;
-                }
-                >.cel6{ // acciones
+                >.cel4{ //acciones
                     @extend .l1;
                     @extend .m2;
-                    @extend .s3;
+                    @extend .s2;
                 }
             }
 
             //estilo del encabezado
-            >section#tableTop_Libro{
+            >section#tableTop_Autor{
                 @extend .w3-row;
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
@@ -91,25 +61,20 @@
                     border-left: 0px none green;
                 }
             }
-            >section#tableTop_Libro.fixingLibrosTop{
-                >div{
-                    height: 3.5em;
-                }
-            }
             //estilo del cuerpo de la taba
             >div#cuerpoEntero{
-                height: 250px;
+                height: 650px;
                 
                 //estido de renglon de la tabla
-                >section.rowsElement_Libro{
+                >section.rowsElement_Autor{
                     @extend .w3-row;
                     border-bottom: 1px solid black;
                     >div{
                         @extend .w3-col;
                         overflow: hidden;
                     }
-                    >.cel6{
-                        button#aderirElemento{
+                    >.cel4{
+                        button{
                             @extend .w3-button;
                             @extend .w3-round-xxlarge;
                             @extend .my-green-color;
@@ -131,9 +96,6 @@
                         }
                     }
                 }
-            }
-            >div#cuerpoEntero.fixingLibrosCuerpo{
-                height: 600px;
             }
         }
     }

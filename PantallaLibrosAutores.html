@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modeloAutores.css">
+
+    <!-- Librerias -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!--Parte Izquierdo (#parteIzquierdo) -->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!--Baner Seccion (banerSeccion) -->
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Libros</p>
+                    <p>Autores</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!--Acciones de Inputs (accionesInputs)-->
+            <div>
+                <form action="accion" method="post">
+                    <label for="clave">Clave</label> 
+                    <input type="number" name="clave" id="clave"> 
+                    <label for="nombre">Nombre(s)</label>
+                    <input type="text" name="nombre" id="nombre">
+                    <label for="apellido">Apellido(s)</label>
+                    <input type="text" name="apellido" id="apellido">
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--Botones de accion (botonesDeAccion)-->
+            <div>
+                <div> <a href="PantallaLibros.html"> <button>Regresar</button></a></div> 
+                <div> <a href="MenuPrincipal.html"> <button>Menu</button></a></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!--Parte Derecho (#parteDerecho)-->
+    <div id="parteDerecho">
+        <!--Tabla Info (tablaInfo)-->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Autor">
+                    
+                    <div class="cel1"> <span>Clave</span> </div>
+                    <div class="cel2"> <span>Nombre(s)</span> </div>
+                    <div class="cel3"> <span>Apellido(s)</span> </div>
+                    <div class="cel4"> <span>Actions</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+
+                    <section class="rowsElement_Autor"
+                    >
+                        
+                        <div class="cel1"><span>{{autor.id}}</span></div>
+                        <div class="cel2"><span>{{autor.nombre}}</span></div>
+                        <div class="cel3"><span>{{autor.apellido}}</span></div>
+                        <div class="cel4"><button>o</button></div>
+                        
+                        <div class="elementComplete"
+                        >
+                            <section>
+                                <p>ID: {{autor.id}}</p>
+                                <p>Nombre: {{autor.nombre}}</p>
+                                <p>Apellido: {{autor.apellido}}</p>
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </tablaInfo>
+
+    </div>
+
+    
+</body>
+
+<!--script del final-->
+<script src="js/mainAutores.js"></script>
+
+
+</html>
