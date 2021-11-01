@@ -8,6 +8,7 @@
     <title>Base Total de todo lo que tengamos</title>
     <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
     <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modeloEmpleados.css">
 
     <!-- librerias -->
     <script src="js/angular.min.js"></script>
@@ -24,7 +25,7 @@
                     <img src="img/Logo.png" alt="">
                 </div>
                 <div id="tituloSeccion">
-                    <p>Modulo</p>
+                    <p>Empleado</p>
                 </div>
                 <div class="resetFloat"></div>
             </div>
@@ -34,8 +35,17 @@
             <!--Acciones de Inputs (accionesInputs) -->
             <div>
                 <form action="accion" method="post">
-                    <label for="atributo">Atributo</label> 
-                    <input type="text" name="atributo" id="atributo"> 
+                    <label for="nombre">Nombre</label> 
+                    <input type="text" name="nombre" id="nombre"> 
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido">
+                    <label for="rolSelect">Rol</label>
+                    <select name="rolSelect" id="rolSelect">
+                        <option value="Todos">sin filltro</option>
+                        <option value="Gerente">Gerente</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Funcionario">Funcionario</option>
+                    </select>
                 </form>
             </div>
         </accionesInputs>
@@ -43,7 +53,8 @@
         <botonesDeAccion>
             <!--Botones de accion (botonesDeAccion)-->
             <div>
-                <div><button>Boton</button></div> 
+                <div> <button>Buscar</button></div>
+                <div> <a href="MenuPrincipal.html"> <button>Menu</button></a></div> 
             </div>
         </botonesDeAccion>
     </div>
@@ -54,20 +65,34 @@
             <div>
                 <section id="tableTop_Empleado">
                     <div class="cel1"> <span>Element</span> </div>
+                    <div class="cel2"> <span>Nombre</span> </div>
+                    <div class="cel3"> <span>Apellido</span> </div>
+                    <div class="cel4"> <span>Rol</span> </div>
+                    <div class="cel5"> <span>Contratado</span> </div>
                 </section>
                 <div id="cuerpoEntero">
 
                     <section class="rowsElement_Empleado"
-                        ng-repeat="empleado in listEmpleado track by $index";
-                        ng-init="mostElemento=false"
                     >
                         <div class="cel1"><span>{{empleado.id}}</span></div>
-                        
+                        <div class="cel2"><span>{{empleado.nombre}}</span></div>
+                        <div class="cel3"><span>{{empleado.apellido}}</span></div>
+                        <div class="cel4"><span>{{empleado.rol}}</span></div>
+                        <div class="cel5"> 
+                            <label class="switch">
+                                <input type="checkbox" 
+                                [checked]="{{empleado.contratado}}"
+                                >
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
                         <div class="elementComplete"
-                            ng-show="mostElemento"
                         >
                             <section>
                                 <p>ID: {{empleado.id}}</p>
+                                <p>Nombre: {{empleado.nombre}}</p>
+                                <p>Apellido: {{empleado.apellido}}</p>
+                                <p>Rol: {{empleado.rol}}</p>
                             </section>
                         </div>
                     </section>
