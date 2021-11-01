@@ -2,7 +2,7 @@
 
 /*
     tablaInfo
-    Aqui estan el estilo de la tabla de Ventas Simples
+    Aqui estan el estilo de la tabla de Editoriales Simples
 */
 
 :root{
@@ -19,44 +19,40 @@
 #parteDerecho{
     >tablaInfo{
         >div{
-            section, div>section.rowsElement_Libro{
+            section, div>section.rowsElement_Editoriales{
                 >.cel1{ //id
-                    @extend .l1;
-                    @extend .m1;
+                    @extend .l2;
+                    @extend .m3;
                     @extend .s2;
                 }
-                >.cel2{ //titulo
-                    @extend .l3;
-                    @extend .m4;
-                    @extend .s4;
+                >.cel2{ //nombre
+                    @extend .l8;
+                    @extend .m6;
+                    @extend .s7;
                 }
-                >.cel3{ //autor
-                    @extend .l4;
-                    @extend .m4;
-                    @extend .w3-hide-small;
-                    
-                }
-                >.cel4{ //editorial
-                    @extend .l2;
-                    @extend .w3-hide-medium;
-                    @extend .w3-hide-small;
-                }
-                >.cel5{ //precio
+                >.cel3{ //acciones
                     @extend .l2;
                     @extend .m3;
                     @extend .s3;
+                    svg{
+                        max-height: 4em ;
+                    }
                 }
             }
 
             //estilo del encabezado
-            >section#tableTop_Libro{
+            >section#tableTop_Editoriales{
                 @extend .w3-row;
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
                 margin-right: 16px;
+                
                 >div{
                     @extend .w3-col;
                     border-left: 1px solid black;
+                    min-height: 2em;
+                    height: 2em;
+                    
                 }
                 :first-child{
                     border-left: 0px none green;
@@ -67,21 +63,23 @@
                 height: 480px;
                 
                 //estido de renglon de la tabla
-                >section.rowsElement_Libro{
+                >section.rowsElement_Editoriales{
                     @extend .w3-row;
                     border-bottom: 1px solid black;
                     >div{
                         @extend .w3-col;
                         overflow: hidden;
                     }
-                    >.cel6{
-                        button#aderirElemento{
+                    >.cel4{
+                        button{
                             @extend .w3-button;
                             @extend .w3-round-xxlarge;
                             @extend .my-green-color;
                         }
                     }
                     >.elementComplete{
+                        
+                        
                         section{
                             
                             >div{
@@ -95,43 +93,38 @@
                         }
                     }
                 }
-            }   
-        }
-    }
-    >tablaPago{
-        >section{
-            @extend .w3-row;
-            border-bottom: 1px solid black;
-            margin-right: 16px;
-            >div{
-                @extend .w3-col;
-                border-left: 1px solid black;
-                border-top: 1px solid grey;
-                
-                font-size: 1em;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 3.5em;
-                max-height: 5em;
-                    /*span{
-                        //flex: 0 0 0px;
-                    }*/
-                text-align: center;
             }
-            :first-child{
-                border-left: 0px none green;
-            }
-            div.cel1{
-                @extend .l8;
-                
-            }
-            div.cel2{
-                @extend .l2;
-            }
-            div.cel3{
-                @extend .l2;
+            >div#pieTabla{
+                >section{
+                    @extend .w3-row;
+                    border-top: 1px solid black;
+                    border-bottom: 1px solid black;
+                    >div{
+                        @extend .w3-col;
+                        overflow: hidden;
+                        input{
+                            width: 90%;
+                        }
+                    }
+                    >.cel1{ //id
+                        @extend .l2;
+                        @extend .m3;
+                        @extend .s2;
+                    }
+                    >.cel2{ //nombre
+                        @extend .l8;
+                        @extend .m6;
+                        @extend .s7;
+                    }
+                    >.cel3{ //acciones
+                        @extend .l2;
+                        @extend .m3;
+                        @extend .s3;
+                        svg{
+                            max-height: 4em ;
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,7 +1,17 @@
 var app = angular.module('allApp',[]);
 var marcador = null;
 
-    
+    $("#parteIzquierdo").attr(
+        {
+            'ng-init':"showForm = false"
+        }
+    );
+
+    $("#parteIzquierdo>accionesInputs").attr(
+        {
+            'ng-if':"showForm"
+        }
+    );
 
     $("tablaInfo>div>div>section").attr(
         {
@@ -10,7 +20,7 @@ var marcador = null;
         }
     );
 
-    $("tablaInfo>div>div>section>div.cel1>button").attr(
+    $("tablaInfo>div>div>section>div").attr(
         {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
     );
 
@@ -23,16 +33,16 @@ var marcador = null;
         $scope.listVenta=[
             {id:0,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
             {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
-            {id:2,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5}
+            {id:3,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:4,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:5,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:6,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:7,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:8,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:9,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:20,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:22,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5},
+            {id:24,cliente:"MrMrMango Head",responsable:"Kenji Gonzlez Hoshino",fecha:"11/03/2021",vendidos:5}
         ];
     
         $scope.listVentaMostrado=[];

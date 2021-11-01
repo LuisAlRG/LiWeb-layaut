@@ -16,10 +16,30 @@
     color: var(--color-letra);
 }
 
+#parteIzquierdo{
+    >accionesInputs{
+        >div>form{
+            @extend .w3-row;
+            >div#claveSection{
+                @extend .w3-col;
+                @extend .l6;
+                @extend .m12;
+                @extend .s6;
+            }
+            >div#edicionSection{
+                @extend .w3-col;
+                @extend .l6;
+                @extend .m12;
+                @extend .s6;
+            }
+        }
+    }
+}
+
 #parteDerecho{
     >tablaInfo{
         >div{
-            section, div>section.rowsElement_Libro{
+            section, div>section.rowsElement_Libro, section#rowsNewElement_Libro{
                 >.cel1{ //id
                     @extend .l1;
                     @extend .m1;
@@ -71,6 +91,11 @@
                     border-left: 0px none green;
                 }
             }
+            >section#tableTop_Libro.fixingLibrosTop{
+                >div{
+                    height: 3.5em;
+                }
+            }
             //estilo del cuerpo de la taba
             >div#cuerpoEntero{
                 height: 250px;
@@ -91,24 +116,107 @@
                         }
                     }
                     >.elementComplete{
-                        display:block;
-                        justify-content:baseline;
-                        align-items: center;
-                        @extend .l12;
-                        @extend .m12;
-                        @extend .s12;
-                        max-height: fit-content;
-                        height: auto;
+                        
                         
                         section{
-                            @extend .w3-display-container;
-                            @extend .w3-card-2;
-                            @extend .w3-margin;
                             
+                            >div{
+                                display: block;
+                                @extend .w3-col;
+                                @extend .l6;
+                                @extend .m6;
+                                @extend .s12;
+                                max-height: fit-content;
+                            }
                         }
                     }
                 }
-            }   
+            }
+            >div#cuerpoEntero.fixingLibrosCuerpo{
+                height: 480px;
+            }
+
+            >div#pieTabla{
+                >section{
+                    @extend .w3-row;
+                    border-top: 1px solid black;
+                    border-bottom: 1px solid black;
+                    >div{
+                        @extend .w3-col;
+                        overflow: hidden;
+                        input{
+                            width: 90%;
+                        }
+                    }
+                    >.cel1{ //id
+                        @extend .l1;
+                        @extend .m1;
+                        @extend .s2;
+                    }
+                    >.cel2{ //titulo
+                        @extend .l3;
+                        @extend .m4;
+                        @extend .s4;
+                    }
+                    >.cel3{ //autor
+                        @extend .l3;
+                        @extend .m3;
+                        @extend .w3-hide-small;
+                        
+                    }
+                    >.cel4{ //editorial
+                        @extend .l2;
+                        @extend .w3-hide-medium;
+                        @extend .w3-hide-small;
+                    }
+                    >.cel5{ //cantidad
+                        @extend .l2;
+                        @extend .m2;
+                        @extend .s3;
+                    }
+                    >.cel6{ // acciones
+                        @extend .l1;
+                        @extend .m2;
+                        @extend .s3;
+                    }
+                }
+            }
+        }
+    }
+    >especialVenta{
+        section{
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            @extend .w3-row;
+            >*{
+                height: 3em;
+            }
+            span{
+                @extend .w3-col;
+                @extend .l8;
+                @extend .m8;
+                @extend .s8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+            button{
+                @extend .w3-col;
+                @extend .l4;
+                @extend .m4;
+                @extend .s4;
+                @extend .w3-button;
+                @extend .w3-round-xlarge;
+                @extend .my-green-color;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.25em;
+            }
         }
     }
 }

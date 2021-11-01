@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Total de todo lo que tengamos</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modeloHistorial.css">
+
+    <!-- librerias -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!--Parte Izquierdo (#parteIzquierdo)-->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!--Baner Seccion (banerSeccion)-->
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Historial</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!--Acciones de Inputs (accionesInputs) -->
+            <div>
+                <form action="accion" method="post">
+                    <label for="atributo">Atributo</label> 
+                    <input type="text" name="atributo" id="atributo"> 
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--Botones de accion (botonesDeAccion)-->
+            <div>
+                <div> <button>Imprimir</button> </div>
+                <div> <a href="MenuPrincipal.html"> <button>Menu</button></a></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!--Parte Derecho (#parteDerecho) -->
+    <div id="parteDerecho">
+        <!--Tabla Info (tablaInfo)-->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Historial">
+                    <div class="cel1"> <span>Descripcion</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+
+                    <section class="rowsElement_Historial"
+                    >
+                        <div class="cel1">
+                            <span>el {{historial.puestoEmp}} {{historial.nombreEmp}} {{historial.operacion}} el dia {{historial.fecha}} </span>
+                        </div>
+                        
+                        <div class="elementComplete"
+                        >
+                            <section>
+                                <p>ID: {{historial.id}}</p>
+                                <p>ID del empleado : {{historial.idEmp}}</p>
+                                <p>Tipo de operacion: {{historial.filtro}} </p>
+                                <p>Fecha: {{historial.fecha}} </p>
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </tablaInfo>
+
+    </div>
+
+    
+</body>
+
+<!--script del final
+-->
+<script src="js/mainHistorial.js"></script>
+
+
+</html>

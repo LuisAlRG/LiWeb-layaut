@@ -13,9 +13,7 @@
 </head>
 <body ng-app="allApp" ng-controller="allController">
 
-    <div id="parteIzquierdo"
-        ng-init="showForm = false"
-    >
+    <div id="parteIzquierdo">
         <banerSeccion>
             <div>
                 <div id="logo">
@@ -27,9 +25,7 @@
                 <div class="resetFloat"></div>
             </div>
         </banerSeccion>
-        <accionesInputs
-            ng-if="showForm"
-        >
+        <accionesInputs>
             <div>
                 <form action="filtrar" method="post">
                     <label for="clave">Clave de venta</label> 
@@ -52,10 +48,22 @@
         </accionesInputs>
         <botonesDeAccion>
             <div>
-                <div><button>Vender</button></div> 
-                <div><button ng-click="showForm=true" ng-show="!showForm" >Consultar</button></div> 
-                <div><button ng-click="showForm=false" ng-show="showForm" >Regresar</button></div> 
-                <div><button>Menu</button></div> 
+                <div>
+                    <a href="PantallaVentaActiond.html">
+                    <button>Vender</button>
+                    </a>
+                </div> 
+                <div> 
+                    <button ng-click="showForm=true" ng-show="!showForm" >Consultar</button>
+                </div> 
+                <div>
+                    <button ng-click="showForm=false" ng-show="showForm" >Regresar</button>
+                </div> 
+                <div>
+                    <a href="MenuPrincipal.html">
+                    <button>Menu</button>
+                    </a>
+                </div> 
             </div>
         </botonesDeAccion>
     </div>
@@ -71,7 +79,7 @@
                 </section>
                 <div id="cuerpoEntero">
                     <section class="renglosElement_Venta">
-                        <div class="cel1"> <button >{{(mostElemento && indxSelecionado == $index)? "_":"V"}}</button><span>{{venta.id}}</span> </div>
+                        <div class="cel1"> <span>{{venta.id}}</span> </div>
                         <div class="cel2"> <span>{{venta.cliente}}</span> </div>
                         <div class="cel3"> <span>{{venta.responsable}}</span> </div>
                         <div class="cel4"> <span>{{venta.fecha}}</span> </div>
@@ -80,7 +88,7 @@
                             <section>
                                 <p>id: {{venta.id}}</p>
                                 <p>Cliente: {{venta.cliente}}</p>
-                                <p>Apleado: {{venta.responsable}}</p>
+                                <p>Empleado: {{venta.responsable}}</p>
                                 <p>Fecha: {{venta.fecha}}</p>
                                 <p>Cantidad: {{venta.vendidos}}</p>
                             </section>

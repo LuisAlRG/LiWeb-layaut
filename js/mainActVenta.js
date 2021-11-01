@@ -22,11 +22,18 @@ $("tablaInfo.elementoSeleccionado>div>#cuerpoEntero>section").attr(
     }
 );
 
-$("tablaInfo.elementoSeleccionado>div>#cuerpoEntero>section>.elementComplete").attr(
-    {
-        'ng-if':"mostElemento"
-    }
+$("tablaInfo>div>div>section>div").attr(
+    {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
 );
+
+$("tablaInfo>div>div>section>div.cel6").attr(
+    {'ng-click': ""}
+);
+
+$("tablaInfo>div>div>section>div.elementComplete").attr(
+    {'ng-if':"mostElemento && indxSelecionado == $index"}
+);
+
 
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
@@ -57,7 +64,7 @@ app.controller('allController',function($scope,$http){
 
     $scope.precioTotal = 0;
 
-
+    $scope.indxSelecionado = 0;
     //funciones de llamada
     $scope.accionAderirSeleccion = function(index){
         $scope.listLibros[index].cantidad--;
@@ -74,5 +81,9 @@ app.controller('allController',function($scope,$http){
 
     $scope.mostrarBtnVenta = function(){
         return $scope.listLibrosSelect.length > 0;
+    }
+
+    $scope.setIndxSelecionado = function(elIndex){
+        $scope.indxSelecionado = elIndex;
     }
 });
