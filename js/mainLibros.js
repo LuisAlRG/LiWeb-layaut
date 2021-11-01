@@ -13,22 +13,38 @@ var marcador = null;
         }
     );
 
-    $("#btnConsultar").attr(
+    $("#parteIzquierdo>botonesDeAccion>div#botonesPrincipal").attr(
         {
-            'ng-click':"showForm=true"
+            'ng-show':"!showForm"
         }
     );
 
+    $("#parteIzquierdo>botonesDeAccion>div#botonesFormMode").attr(
+        {
+            'ng-show':"showForm"
+        }
+    );
 
+    $("#btnConsultar").attr(
+        {
+            'ng-click':"showForm = true"
+        }
+    );
 
-    $("tablaInfo>div>div>section").attr(
+    $("#btnCancelarCons").attr(
+        {
+            'ng-click':"showForm = false"
+        }
+    );
+
+    $("tablaInfo>div>div#cuerpoEntero>section").attr(
         {
             'ng-repeat':"libros in listLibros track by $index",
             'ng-init':"mostElemento = false;"
         }
     );
 
-    $("tablaInfo>div>div>section>div").attr(
+    $("tablaInfo>div>div#cuerpoEntero>section>div").attr(
         {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
     );
 
@@ -66,6 +82,36 @@ var marcador = null;
         $scope.listVentaMostrado=[];
 
         $scope.indxSelecionado = 0;
+
+        $scope.listMostAutores=[
+            {
+                nombre:"Rodriguez G. Luisito"
+            },
+            {
+                nombre:"Camilo Fernando"
+            },
+            {
+                nombre:"Bruegge"
+            },
+            {
+                nombre:"Stuart Russell"
+            }
+        ];
+
+        $scope.listMostEditorial=[
+            {
+                nombre:"PERSON: Prentice Hall"
+            },
+            {
+                nombre:"Macornigui"
+            },
+            {
+                nombre:"Editoriales Illuminatus"
+            },
+            {
+                nombre:"McGrawHill"
+            }
+        ];
 
         //funciones
         $scope.formatoFecha = function( laFecha ){

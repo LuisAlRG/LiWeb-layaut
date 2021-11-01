@@ -72,6 +72,8 @@ body{
                 font-size: 1.25em;
                 margin-bottom: 0px;
             }
+            
+            
             div{
                 @extend .w3-col;
                 @extend .l12;
@@ -84,6 +86,16 @@ body{
                     border-radius: 1em;
                     font-size: 1.25em;
                 }
+                
+            }
+        }
+        .btnLogOut{
+            @extend .w3-col;
+            @extend .l6;
+            @extend .m12;
+            @extend .s4;
+            >a>button{
+                fill: lightgrey;
             }
         }
     }
@@ -182,7 +194,7 @@ form{
                 @extend .l4;
                 @extend .m6;
                 @extend .s12;
-                >div{
+                div{
                     @extend .w3-padding;
                     @extend .w3-button;
                     @extend .my-green-color;

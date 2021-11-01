@@ -204,3 +204,25 @@ div:hover>svg path.marcoR{
         fill: #008000;
     }
 }
+
+button:hover>svg g.fondoFalsoLO path, button:hover>svg g.fondoFalsoLO rect {
+    fill: lightgrey;
+}
+
+button:hover>svg g.flechaLO{
+    animation: flecha-mover-logout 1s ease-in normal;
+    animation-fill-mode: forwards;
+}
+
+div.btnLogOut>a>button>svg{
+    max-height: 5em;
+}
+
+@keyframes flecha-mover-logout {
+    40%{
+        transform: translateX(-20px);
+    }
+    90%{
+        transform: translateX(-5px);
+    }
+}

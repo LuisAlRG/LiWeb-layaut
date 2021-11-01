@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Total de todo lo que tengamos</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="css/principalStyle.css">
+
+    <!-- librerias -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!--Parte Izquierdo (#parteIzquierdo)-->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!--Baner Seccion (banerSeccion)-->
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Modulo</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!--Acciones de Inputs (accionesInputs) -->
+            <div>
+                <form action="accion" method="post">
+                    <label for="atributo">Atributo</label> 
+                    <input type="text" name="atributo" id="atributo"> 
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--Botones de accion (botonesDeAccion)-->
+            <div>
+                <div><button>Boton</button></div> 
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!--Parte Derecho (#parteDerecho) -->
+    <div id="parteDerecho">
+        <!--Tabla Info (tablaInfo)-->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Empleado">
+                    <div class="cel1"> <span>Element</span> </div>
+                </section>
+                <div id="cuerpoEntero">
+
+                    <section class="rowsElement_Empleado"
+                        ng-repeat="empleado in listEmpleado track by $index";
+                        ng-init="mostElemento=false"
+                    >
+                        <div class="cel1"><span>{{empleado.id}}</span></div>
+                        
+                        <div class="elementComplete"
+                            ng-show="mostElemento"
+                        >
+                            <section>
+                                <p>ID: {{empleado.id}}</p>
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </tablaInfo>
+
+    </div>
+
+    
+</body>
+
+<!--script del final
+-->
+<script src="js/mainEmpleados.js"></script>
+
+
+</html>

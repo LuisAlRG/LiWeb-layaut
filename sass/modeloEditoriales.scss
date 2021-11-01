@@ -2,7 +2,7 @@
 
 /*
     tablaInfo
-    Aqui estan el estilo de la tabla de Autores Simples
+    Aqui estan el estilo de la tabla de Editoriales Simples
 */
 
 :root{
@@ -19,32 +19,29 @@
 #parteDerecho{
     >tablaInfo{
         >div{
-            section, div>section.rowsElement_Autor{
+            section, div>section.rowsElement_Editoriales{
                 >.cel1{ //id
                     @extend .l2;
-                    @extend .m2;
+                    @extend .m3;
                     @extend .s2;
                 }
                 >.cel2{ //nombre
-                    @extend .l4;
-                    @extend .m4;
-                    @extend .s4;
+                    @extend .l8;
+                    @extend .m6;
+                    @extend .s7;
                 }
-                >.cel3{ //apellido
-                    @extend .l5;
-                    @extend .m4;
-                    @extend .s4;
-                    
-                }
-                >.cel4{ //acciones
-                    @extend .l1;
-                    @extend .m2;
-                    @extend .s2;
+                >.cel3{ //acciones
+                    @extend .l2;
+                    @extend .m3;
+                    @extend .s3;
+                    svg{
+                        max-height: 4em ;
+                    }
                 }
             }
 
             //estilo del encabezado
-            >section#tableTop_Autor{
+            >section#tableTop_Editoriales{
                 @extend .w3-row;
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
@@ -66,16 +63,18 @@
                 height: 480px;
                 
                 //estido de renglon de la tabla
-                >section.rowsElement_Autor{
+                >section.rowsElement_Editoriales{
                     @extend .w3-row;
                     border-bottom: 1px solid black;
                     >div{
                         @extend .w3-col;
                         overflow: hidden;
                     }
-                    >.cel3{
-                        svg{
-                            max-height: 4em ;
+                    >.cel4{
+                        button{
+                            @extend .w3-button;
+                            @extend .w3-round-xxlarge;
+                            @extend .my-green-color;
                         }
                     }
                     >.elementComplete{
@@ -94,7 +93,6 @@
                         }
                     }
                 }
-
             }
             >div#pieTabla{
                 >section{
@@ -110,24 +108,18 @@
                     }
                     >.cel1{ //id
                         @extend .l2;
-                        @extend .m2;
+                        @extend .m3;
                         @extend .s2;
                     }
                     >.cel2{ //nombre
-                        @extend .l4;
-                        @extend .m4;
-                        @extend .s4;
+                        @extend .l8;
+                        @extend .m6;
+                        @extend .s7;
                     }
-                    >.cel3{ //apellido
-                        @extend .l5;
-                        @extend .m4;
-                        @extend .s4;
-                        
-                    }
-                    >.cel4{ //acciones
-                        @extend .l1;
-                        @extend .m2;
-                        @extend .s2;
+                    >.cel3{ //acciones
+                        @extend .l2;
+                        @extend .m3;
+                        @extend .s3;
                         svg{
                             max-height: 4em ;
                         }
