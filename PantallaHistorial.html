@@ -35,8 +35,19 @@
             <!--Acciones de Inputs (accionesInputs) -->
             <div>
                 <form action="accion" method="post">
-                    <label for="atributo">Atributo</label> 
-                    <input type="text" name="atributo" id="atributo"> 
+                    <label for="filtro">Tipo de Operacion</label>
+                    <select name="filtro" id="filtro">
+                        <option value="Nada">--</option>
+                        <option value="Ventas">Ventas</option>
+                        <option value="Libros">Libros</option>
+                        <option value="Empleados">Empleados</option>
+                    </select>
+                    <label for="contenido">Contenido</label> 
+                    <input type="text" name="contenido" id="contenido"> 
+                    <label for="fechaMin">Fecha Minima</label>
+                    <input type="date" name="fechaMin" id="fechaMin">
+                    <label for="fechaMax">Fecha Maxima</label>
+                    <input type="date" name="fechaMax" id="fechaMax">
                 </form>
             </div>
         </accionesInputs>
