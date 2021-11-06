@@ -61,6 +61,10 @@
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
                 margin-right: 16px;
+
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
+
                 >div{
                     //@extend .w3-col;
                     border-left: 1px solid black;

@@ -40,16 +40,28 @@ var marcador = null;
     $("tablaInfo>div>div#cuerpoEntero>section").attr(
         {
             'ng-repeat':"libros in listLibros track by $index",
-            'ng-init':"mostElemento = false;"
+            'ng-init':"mostElemento = false; mostOpcionesAdm = false;"
         }
     );
 
     $("tablaInfo>div>div#cuerpoEntero>section>div").attr(
-        {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
+        {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index)"}
+    );
+
+    $("div.cel6").attr(
+        {'ng-click': ""}
+    );
+
+    $("div.cel6>svg").attr(
+        {'ng-click':"mostOpcionesAdm= ((mostOpcionesAdm && (indxSelecionadoOp == $index)) ? false : true); setIndxSelecionadoOp($index) "}
     );
 
     $("tablaInfo>div>div>section>div.elementComplete").attr(
         {'ng-if':"mostElemento && indxSelecionado == $index"}
+    );
+
+    $("tablaInfo>div>div>section>div.opcionesAdm").attr(
+        {'ng-if':"mostOpcionesAdm && indxSelecionadoOp == $index"}
     );
 
     app.controller('allController',function($scope,$http){
@@ -82,6 +94,7 @@ var marcador = null;
         $scope.listVentaMostrado=[];
 
         $scope.indxSelecionado = 0;
+        $scope.indxSelecionadoOp = 0;
 
         $scope.listMostAutores=[
             {
@@ -122,6 +135,10 @@ var marcador = null;
         $scope.setIndxSelecionado = function(elIndex){
             $scope.indxSelecionado = elIndex;
         }
+        $scope.setIndxSelecionadoOp = function(elIndex){
+            $scope.indxSelecionadoOp = elIndex;
+        }
+
 
         $scope.cambiarSelectedIndex = function(elIndex){
             return $scope.indxSelecionado == elIndex;

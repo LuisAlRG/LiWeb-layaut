@@ -28,7 +28,7 @@
                 >.cel2{ //titulo
                     @extend .l3;
                     @extend .m4;
-                    @extend .s4;
+                    @extend .s6;
                 }
                 >.cel3{ //autor
                     @extend .l4;
@@ -44,7 +44,7 @@
                 >.cel5{ //precio
                     @extend .l2;
                     @extend .m3;
-                    @extend .s3;
+                    @extend .s4;
                 }
             }
 
@@ -54,12 +54,16 @@
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
                 margin-right: 16px;
+
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
                 >div{
                     @extend .w3-col;
                     border-left: 1px solid black;
                 }
-                :first-child{
+                div:first-child{
                     border-left: 0px none green;
+                    
                 }
             }
             //estilo del cuerpo de la taba
@@ -125,14 +129,71 @@
             }
             div.cel1{
                 @extend .l8;
-                
+                @extend .m7;
+                @extend .s6;
             }
             div.cel2{
                 @extend .l2;
+                @extend .m2;
+                @extend .s3;
             }
             div.cel3{
                 @extend .l2;
+                @extend .m3;
+                @extend .s3;
             }
         }
     }
+    >notaDePago{
+        >section{
+            @extend .w3-row;
+            
+            >div{
+
+                border-bottom: 1px solid black;
+                min-height: 3.5em;
+                max-height: 5em;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            >div:nth-child(1){
+                @extend .w3-col;
+                @extend .l6;
+                @extend .m7;
+                @extend .s8;
+                text-align: right;
+                justify-content: right;
+                padding-right: 1em;
+            }
+            >div:nth-child(2){
+                @extend .w3-col;
+                @extend .l2;
+                @extend .m3;
+                @extend .s4;
+            }
+        }
+        #topPago{
+            >div{
+                @extend .my-green-color;
+            }
+            >div:first-child{
+                border-top-left-radius: 1em;
+            }
+            >div:last-child{
+                border-top-right-radius: 1em;
+            }
+        }
+        #totalCobrar{
+
+        }
+        #totalPagar{
+
+        }
+        #totalFeria{
+            
+        }
+    }
 }
+

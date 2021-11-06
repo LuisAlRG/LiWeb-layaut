@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LW - Libros</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="../css/principalStyle.css">
+    <link rel="stylesheet" href="../css/modeloLibros.css">
+    
+
+    <!-- librerias  -->
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!-- Parte Izquierdo (#parteIzquierdo)-->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!-- Baner Seccion (banerSeccion)-->
+            <div>
+                <div id="logo">
+                    <img src="../img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Libros</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!-- Acciones de Inputs (accionesInputs)-->
+            <div>
+                <form action="libroConsultar" method="post">
+                    <div id="claveSection">
+                    <label for="claveID">Clave</label> 
+                    <input type="number" name="claveID" id="claveID"> 
+                    </div>
+                    <div id="edicionSection">
+                    <label for="edicion">Edicion</label>
+                    <input type="number" name="edicion" id="edicion"> 
+                    </div>
+                    <label for="precio">Precio</label>
+                    <input type="number" name="precio" id="precio">
+
+                    <label for="tituloL">Titulo</label>
+                    <input type="text" name="tituloL" id="tituloL">
+                    <label for="autorL">Autor</label>
+                    <input type="text" name="autorL" id="autorL">
+                    <label for="editorialL">Editorial</label>
+                    <input type="text" name="editorialL" id="editorialL">
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--
+                Botones de accion (botonesDeAccion)-->
+            <div id="botonesPrincipal">
+                <div><button id="btnConsultar" >Consultar</button></div>
+                <p>Navegar a:</p>
+                <div> <a href="PantallaLibrosAutores.html"><button>Autores</button></a></div>
+                <div> <a href="PantallaLibrosGeneros.html"><button>Generos</button></a> </div>
+                <div> <a href="PantallaLibrosEditoriales.html"> <button>Editoriales</button></a></div>
+                <div> <a href="MenuPrincipal.html"><button>Menú</button></a> </div>
+            </div>
+            <div id="botonesFormMode">
+                <div> <button id="btnFormAplicar"> Buscar </button> </div>
+                <div> <button id="btnCancelarCons"> Cancelar </button> </div>
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!-- Parte Derecho (#parteDerecho)-->
+    <div id="parteDerecho">
+        <!-- Tabla Info (tablaInfo)-->
+        <tablaInfo>
+            <div>
+                <section id="tableTop_Libro" class="fixingLibrosTop">
+                    <div class="cel1"> <span>#ID</span> </div>
+                    <div class="cel2"> <span>Titulo</span> </div>
+                    <div class="cel3"> <span>Autor</span> </div>
+                    <div class="cel4"> <span>Editorial</span> </div>
+                    <div class="cel5"> <span>Precio</span> </div>
+                    <div class="cel6"> <span>Accion</span> </div>
+                </section>
+                <div id="cuerpoEntero" class="fixingLibrosCuerpo">
+
+                    <section class="rowsElement_Libro">
+                    <div class="cel1"> <span>{{libros.id}}</span> </div>
+                    <div class="cel2"><span>{{libros.titulo}}</span></div>
+                    <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
+                    <div class="cel4"><span>{{libros.editorial}}</span></div>
+                    <div class="cel5"><span>{{ (libros.precio).toLocaleString('en-US', {style: 'currency', currency: 'USD',}) }}</span></div>
+                    <div class="cel6">
+                    </div>
+
+                        
+                        <div class="elementComplete">
+                            <section>
+                                <div>
+                                    <p>Id: {{libros.id}}</p>
+                                    <p>Titulo: {{libros.titulo}}</p>
+                                    <p>Precio: $ {{libros.precio}} mx</p>
+                                    <p>Editorial: {{libros.editorial}}</p>
+                                    <p>Cantidad en inventario: {{libros.cantidad}}</p>
+                                </div>
+                                <div>
+                                    <p>Autores:</p>
+                                    <ul>
+                                        <li ng-repeat="autor in libros.autores"> {{autor}}</li>
+                                    </ul>
+                                </div>
+                                
+                                
+                            </section>
+                        </div>
+                    </section>
+
+                </div>
+                
+                
+            </div>
+        </tablaInfo>
+
+    </div>
+
+    
+</body>
+
+<!--script del final-->
+<script src="../js/mainLibros.js"></script>
+
+
+</html>

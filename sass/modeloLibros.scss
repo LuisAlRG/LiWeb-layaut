@@ -79,6 +79,9 @@
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
                 margin-right: 16px;
+
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
                 
                 >div{
                     @extend .w3-col;
@@ -114,6 +117,9 @@
                             @extend .w3-round-xxlarge;
                             @extend .my-green-color;
                         }
+                        svg{
+                            max-height: 4em ;
+                        }
                     }
                     >.elementComplete{
                         
@@ -129,6 +135,9 @@
                                 max-height: fit-content;
                             }
                         }
+                    }
+                    >.opcionesAdm{
+                        
                     }
                 }
             }
@@ -178,6 +187,9 @@
                         @extend .l1;
                         @extend .m2;
                         @extend .s3;
+                        svg{
+                            max-height: 4em ;
+                        }
                     }
                 }
             }
@@ -219,4 +231,5 @@
             }
         }
     }
+
 }
