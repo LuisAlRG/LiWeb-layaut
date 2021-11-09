@@ -26,10 +26,10 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listEditorial = [
-        {id:0,
+        {id:1,
             nombre:"Editoriales Illuminatus",
         },
-        {id:1,
+        {id:2,
             nombre:"McGrawHill"
         }
     ]

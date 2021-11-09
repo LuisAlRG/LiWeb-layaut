@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Total de todo lo que tengamos</title>
+    <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
+    <link rel="stylesheet" href="css/principalStyle.css">
+    <link rel="stylesheet" href="css/modeloLibrosMod.css">
+
+    <!--librerias-->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<body ng-app="allApp" ng-controller="allController">
+    <!-- Parte Izquierdo (#parteIzquierdo)-->
+    <div id="parteIzquierdo">
+        <banerSeccion>
+            <!--Baner Seccion (banerSeccion)-->
+            <div>
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="tituloSeccion">
+                    <p>Libro</p>
+                    <p>Modificar</p>
+                </div>
+                <div class="resetFloat"></div>
+            </div>
+        </banerSeccion>
+
+        <accionesInputs>
+            <!--Acciones de Inputs (accionesInputs) -->
+            <div>
+                <form action="noAccion" method="post">
+                    <label for="libroID">Clave</label> 
+                    <input type="number" name="libroID" id="libroID"  disabled>
+                    <label for="libroNombre">Nombre</label>
+                    <input type="text" name="libroNombre" id="libroNombre" disabled>
+                </form>
+            </div>
+            <div>
+                <form action="autorBusqueda" method="post">
+                    <label for="autorID">Clave Autor</label> 
+                    <input type="number" name="autorID" id="autorID">
+                    <label for="autorNombre">Nombre(s)</label>
+                    <input type="text" name="autorNombre" id="autorNombre"> 
+                    <label for="autorApellido">Apellido(s)</label>
+                    <input type="text" name="autorApellido" id="autorApellido"> 
+                </form>
+            </div>
+            <div>
+                <form action="editorialBusqueda" method="post">
+                    <label for="editoID">Clave Editorial</label>
+                    <input type="number" name="editoID" id="editoID">
+                    <label for="editoNombre">Nombre</label> 
+                    <input type="text" name="editoNombre" id="editoNombre"> 
+                </form>
+            </div>
+            <div>
+                <form action="generoBusqueda" method="post">
+                    <label for="generoID">Clave Genero</label>
+                    <input type="number" name="generoID" id="generoID">
+                    <label for="generoNombre">Nombre</label> 
+                    <input type="text" name="generoNombre" id="generoNombre"> 
+                </form>
+            </div>
+        </accionesInputs>
+
+        <botonesDeAccion>
+            <!--Botones de accion (botonesDeAccion)-->
+            <div>
+                <div> <button>Busqueda</button> </div> 
+                <div> <a href="PantallaLibros.html"> <button>Regresar</button> </a> </div>
+                <div> <a href="MenuPrincipal.html"> <button>Menu</button> </a> </div>
+            </div>
+        </botonesDeAccion>
+    </div>
+    <!--Parte Derecho (#parteDerecho)-->
+    <div id="parteDerecho">
+        
+        <tbiAutor>
+            <section>
+                <div>Clave</div>
+                <div>Nombre(s)</div>
+                <div>Apellido(s)</div>
+                <div>Actions</div>
+            </section>
+            <div class="cuerpoEntero">
+                <section>
+                    <div>{{autor.id}}</div>
+                    <div>{{autor.nombre}}</div>
+                    <div>{{autor.apellido}}</div>
+                    <div>
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="#008000"/>
+                            <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="elementComplete">
+                        <section>
+                            <p>ID: {{autor.id}}</p>
+                            <p>Nombre: {{autor.nombre}}</p>
+                            <p>Apellido: {{autor.apellido}}</p>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </tbiAutor>
+
+        <tbiEditorial>
+            <section>
+                <div>Clave</div>
+                <div>Nombre</div>
+                <div>Actions</div>
+            </section>
+            <div class="cuerpoEntero">
+                <section>
+                    <div>{{editorial.id}}</div>
+                    <div>{{editorial.nombre}}</div>
+                    <div>
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="#008000"/>
+                            <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="elementComplete">
+                        <section>
+                            <p>ID: {{editorial.id}}</p>
+                            <p>Nombre: {{editorial.nombre}}</p>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </tbiEditorial>
+
+        <tbiGeneros>
+            <section>
+                <div>Clave</div>
+                <div>Nombre</div>
+                <div>Actions</div>
+            </section>
+            <div class="cuerpoEntero">
+                <section>
+                    <div>{{genero.id}}</div>
+                    <div>{{genero.nombre}}</div>
+                    <div>
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="#008000"/>
+                            <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="elementComplete">
+                        <section>
+                            <p>ID: {{genero.id}}</p>
+                            <p>Nombre: {{genero.nombre}}</p>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </tbiGeneros>
+    </div>
+
+    
+</body>
+
+<!--script del final-->
+<script src="js/mainLibrosMod.js"></script>
+
+
+</html>

@@ -22,6 +22,9 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
+
+    
+
     $scope.listHistorial = [
         {id:0,
             idEmp:1,

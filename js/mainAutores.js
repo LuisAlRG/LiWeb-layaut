@@ -1,3 +1,5 @@
+
+
 var app = angular.module('allApp',[]);
 var marcador = null;
 
@@ -26,10 +28,7 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listAutores = [
-        {id:0,
-            nombre:"Hernan",
-            apellido:"cortes"
-        }
+        new Autor(0,"Herman","Cortes")
     ]
     for(let i=1;i<15;i++){
         let numeroAletorio = parseInt(Math.random() * 100);
@@ -40,11 +39,13 @@ app.controller('allController',function($scope,$http){
         let generarApellido1= ((numeroAletorio%8==0)?"Rodriguez":(numeroAletorio%6==0)?"Gonzalez":(numeroAletorio%4==0)?"Manriquez":(numeroAletorio%2==0)?"Berzunsa":"");
         numeroAletorio = parseInt(Math.random() * 100);
         let generarApellido2= ((numeroAletorio%8==0)?"Gonzalez":(numeroAletorio%6==0)?"Aguilar":(numeroAletorio%4==0)?"Zapata":(numeroAletorio%2==0)?"":"Jonstar");
-        $scope.listAutores.push({
-            id:i,
-            nombre:generarNombre1+" "+generarNombre2,
-            apellido:generarApellido1+" "+generarApellido2
-        });
+        $scope.listAutores.push(
+            new Autor(
+                i,
+                generarNombre1+" "+generarNombre2,
+                generarApellido1+" "+generarApellido2
+            )
+        );
     }
 
     $scope.indxSelecionado = 0;
