@@ -54,6 +54,9 @@
                 @extend .my-green-color;
                 border-bottom: 1px solid black;
                 margin-right: 16px;
+
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
                 
                 >div{
                     @extend .w3-col;
@@ -160,7 +163,46 @@
                 }
 
             }
-            
+
+            >div#pieTabla{
+                >section{
+                    @extend .w3-row;
+                    border-top: 1px solid black;
+                    border-bottom: 1px solid black;
+                    >div{
+                        @extend .w3-col;
+                        overflow: hidden;
+                        input{
+                            width: 90%;
+                        }
+                    }
+                    >.cel1{ //id
+                        @extend .l1;
+                        @extend .m1;
+                        @extend .s1;
+                    }
+                    >.cel2{ //nombre
+                        @extend .l5;
+                        @extend .m4;
+                        @extend .s5;
+                    }
+                    >.cel3{ //rol
+                        @extend .l4;
+                        @extend .m4;
+                        @extend .s4;
+                        
+                    }
+                    >.cel4{ //opcion
+                        @extend .l2;
+                        @extend .m3;
+                        @extend .s2;
+                        svg{
+                            max-height: 4em ;
+                        }
+                    }
+                }
+                
+            }
         }
     }
 }

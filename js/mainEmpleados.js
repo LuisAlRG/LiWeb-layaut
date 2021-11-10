@@ -26,40 +26,51 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listEmpleado = [
-        {id:0,
-            nombre:"Luis Alfonso",
-            apellido:"Rodrigez Gonzalez",
-            rol: "Gerente",
-            contratado:true
-        },
-        {id:1,
-            nombre:"Kenji",
-            apellido:"Gonzalez Hoshino",
-            rol: "Administrador",
-            contratado:true
-        },
-        {id:2,
-            nombre:"Jose Luis",
-            apellido:"Sanchez Sanchez",
-            rol: "Funcionario",
-            contratado:false
-        },
-        {id:3,
-            nombre:"Daniel Roman",
-            apellido:"Nuñes Rodriguez",
-            rol: "Funcionario",
-            contratado:true
-        }
+        new Empleado(
+            0,0,
+            "Luis Alfonso",
+            "Rodrigez Gonzalez",
+            "Luis Alfonso",
+            true,
+            true,
+            "Gerente"
+        ),
+        new Empleado(1,1,
+            "Kenji",
+            "Gonzalez Hoshino",
+            "Kenji",
+            true,
+            false,
+            "Administrador"
+        ),
+        new Empleado(2,2,
+            "Jose Luis",
+            "Sanchez Sanchez",
+            "Jose Luis",
+            false,
+            false,
+            "Funcionario"
+        ),
+        new Empleado(3,3,
+            "Daniel Roman",
+            "Sanchez Sanchez",
+            "Daniel Roman",
+            true,
+            false,
+            "Funcionario"
+        )
     ]
     for(let i=4;i<10;i++){
         
         $scope.listEmpleado.push(
-            {id:i,
-                nombre:"Nombre falso el "+(i-3)+"º",
-                apellido:"Appelido False",
-                rol: "Funcionario",
-                contratado:true
-            }
+            new Empleado(i,i,
+                "Nombre falso el "+(i-3)+"º",
+                "Appelido False",
+                "Nombre falso el "+(i-3)+"º",
+                true,
+                false,
+                "Funcionario"
+            )
         );
     }
 

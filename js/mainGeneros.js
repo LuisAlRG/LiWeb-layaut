@@ -26,35 +26,40 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listGenero = [
-        {id:0,
-            nombre:"Novela",
-        },
-        {id:1,
-            nombre:"Romanse"
-        },
-        {id:2,
-            nombre:"Ciencia Fixion"
-        },
-        {id:3,
-            nombre:"Historico"
-        },
-        {id:4,
-            nombre:"De epoca"
-        },
-        
-        {id:5,
-            nombre:"Terror"
-        },
-        {id:1,
-            nombre:"Manga"
-        }
+        new Genero(
+            0,
+            "Novela"
+        ),
+        new Genero(
+            1,
+            "Romanse"
+        ),
+        new Genero(
+            2,
+            "Ciencia Fixion"
+        ),
+        new Genero(
+            3,
+            "Historico"
+        ),
+        new Genero(
+            4,
+            "De epoca"
+        ),
+        new Genero(
+            5,
+            "Terror"
+        ),
+        new Genero(
+            6,
+            "Manga"
+        )
     ]
-    for(let i=2;i<8;i++){
+    for(let i=0;i<8;i++){
         
-        $scope.listGenero.push({
-            id:i,
-            nombre:"Genero no."+(i-1),
-        });
+        $scope.listGenero.push(
+            new Genero(i+7,"Genero no."+(i-1))
+        );
     }
 
     $scope.indxSelecionado = 0;

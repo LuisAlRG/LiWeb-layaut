@@ -40,48 +40,66 @@ var marcador = null;
     $("tablaInfo>div>div#cuerpoEntero>section").attr(
         {
             'ng-repeat':"libros in listLibros track by $index",
-            'ng-init':"mostElemento = false;"
+            'ng-init':"mostElemento = false; mostOpcionesAdm = false;"
         }
     );
 
     $("tablaInfo>div>div#cuerpoEntero>section>div").attr(
-        {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index) ;"}
+        {'ng-click': "mostElemento=((mostElemento && (indxSelecionado == $index)) ? false : true); setIndxSelecionado($index)"}
+    );
+
+    $("div.cel6").attr(
+        {'ng-click': ""}
+    );
+
+    $("div.cel6>svg").attr(
+        {'ng-click':"mostOpcionesAdm= ((mostOpcionesAdm && (indxSelecionadoOp == $index)) ? false : true); setIndxSelecionadoOp($index) "}
     );
 
     $("tablaInfo>div>div>section>div.elementComplete").attr(
         {'ng-if':"mostElemento && indxSelecionado == $index"}
     );
 
+    $("tablaInfo>div>div>section>div.opcionesAdm").attr(
+        {'ng-if':"mostOpcionesAdm && indxSelecionadoOp == $index"}
+    );
+
     app.controller('allController',function($scope,$http){
         //inicializaciones
+
+        let primerElemento = new Libro(1,2,//id libro id editorial
+            "El Poopero",//titulo
+            320,//precio
+            5,//edicion
+            5//cantidad
+        );
+        primerElemento.addListAutor = ["chayanne","Ilum Ticks","uno mas","otro mas", "Nunca acabara"];
+        primerElemento.setEditorial = "Nulle Illuminatus";
         $scope.listLibros=[
-            {id:0,
-            titulo:"El Poopero",
-            autores:["chayanne","Ilum Ticks","uno mas","otro mas", "Nunca acabara"],
-            editorial:"Nulle Illuminatus",
-            cantidad:5, 
-            acabo:false,
-            precio:320
-            }
+            primerElemento
         ];
 
         for(let i=1;i<15;i++){
             let generarTitulo = "Programacion " + ((i%8==0)?"Estrcuturada":(i%6==0)?"Logica":(i%4==0)?"Para principiantes":(i%2==0)?"de C# y javascript":"para Proyectos");
             let precioGenerado = Math.random()* (5001 - 200) + 200;
-            $scope.listLibros.push({
-                id:i,
-                titulo:generarTitulo,
-                autores:["Luisito Rodriguez","Fransisco Imadero"],
-                editorial:(i%2==0)?"Sumerville":"Prentice Hall",
-                cantidad:10 + (i*(i%6)), 
-                acabo:false,
-                precio:precioGenerado
-            });
+
+            let objetoLibro = new Libro(i,i%8,
+                generarTitulo,
+                precioGenerado,
+                i%9,
+                10 + (i*(i%6))
+            )
+            objetoLibro.addListAutor = ["Luisito Rodriguez","Fransisco Imadero"];
+            objetoLibro.setEditorial = (i%2==0)?"Sumerville":"Prentice Hall";
+            $scope.listLibros.push(
+                objetoLibro
+            );
         }
     
         $scope.listVentaMostrado=[];
 
         $scope.indxSelecionado = 0;
+        $scope.indxSelecionadoOp = 0;
 
         $scope.listMostAutores=[
             {
@@ -122,6 +140,10 @@ var marcador = null;
         $scope.setIndxSelecionado = function(elIndex){
             $scope.indxSelecionado = elIndex;
         }
+        $scope.setIndxSelecionadoOp = function(elIndex){
+            $scope.indxSelecionadoOp = elIndex;
+        }
+
 
         $scope.cambiarSelectedIndex = function(elIndex){
             return $scope.indxSelecionado == elIndex;
