@@ -258,6 +258,15 @@ form{
         @extend .w3-border;
         @extend .w3-round;
     }
-    
+    form button{
+        @extend .my-green-color;
+        @extend .w3-button;
+        //width: 100%;
+        margin: 5px 0px;
+        //@extend .w3-margin;
+        border-radius: 1em;
+        font-size: 1.25em;
+        float:right;
+    }
 }
 

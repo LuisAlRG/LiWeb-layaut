@@ -99,6 +99,57 @@
     }
 }
 
+detalleLibro{
+    display: block;
+    @extend .w3-margin;
+    >section{
+        @extend .my-green-color;
+        border-bottom: 1px solid black;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        >div{
+            min-height: 3.5em;
+            height: 3.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+    }
+    
+    >form{
+        >div{
+            @extend .w3-row;
+            @extend .w3-padding;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            border-bottom-left-radius: 1em;
+            border-bottom-right-radius: 1em;
+            >div{
+                @extend .w3-col;
+            }
+            >div:nth-child(1){
+                @extend .l3;
+                @extend .m2;
+                @extend .s2;
+            }
+            >div:nth-child(2){
+                @extend .l9;
+                @extend .m10;
+                @extend .s10;
+            }
+            >div:nth-child(3){
+                @extend .l12;
+                @extend .m12;
+                @extend .s12;
+            }
+        }
+        
+    }
+}
+
 tbiAutor{
     @extend .my-top-comond-style;
     section{

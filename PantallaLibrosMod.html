@@ -74,6 +74,12 @@
             <!--Botones de accion (botonesDeAccion)-->
             <div>
                 <div> <button>Busqueda</button> </div> 
+                <p>Elementos aderidos</p>
+                <div><button>Autor(es)</button></div>
+                <div><button>Editorial(es)</button></div>
+                <div><button>Genero(s)</button></div>
+                <div><button>Regresar a libro</button></div>
+                <p>Navegar a:</p>
                 <div> <a href="PantallaLibros.html"> <button>Regresar</button> </a> </div>
                 <div> <a href="MenuPrincipal.html"> <button>Menu</button> </a> </div>
             </div>
@@ -82,6 +88,36 @@
     <!--Parte Derecho (#parteDerecho)-->
     <div id="parteDerecho">
         
+        <detalleLibro>
+            <section>
+                <div>Modificar Libro</div>
+            </section>
+            
+            <form action="modificarLibro" method="post">
+            <div>
+                <div>
+                    <label for="libroIDM">Clave</label> 
+                    <input type="number" name="libroIDM" id="libroIDM" >
+                </div>
+                <div>
+                    <label for="libroTituloM">Titulo</label>
+                    <input type="text" name="libroTituloM" id="libroTituloM" >
+                </div>
+                <div>
+                    <label for="libroPrecioM">Precio</label>
+                    <input type="number" name="libroPrecioM" id="libroPrecioM">
+                    <label for="libroEdicionM">No. Edicion</label>
+                    <input type="number" name="libroEdicionM" id="libroEdicionM">
+                    <label for="libroCantidadM">Cantidad</label>
+                    <input type="number" name="libroCantidadM" id="libroCantidadM">
+                </div>
+                <div>
+                    <button type="submit">Aplicar Modificacion</button>
+                </div>
+            </div>
+            </form>
+        </detalleLibro>
+
         <tbiAutor>
             <section>
                 <div>Clave</div>
@@ -147,7 +183,7 @@
             </section>
             <div class="cuerpoEntero">
                 <section>
-                    <div>{{genero.id}}</div>
+                    <div>{{genero.idGenero}}</div>
                     <div>{{genero.nombre}}</div>
                     <div>
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +194,7 @@
                     </div>
                     <div class="elementComplete">
                         <section>
-                            <p>ID: {{genero.id}}</p>
+                            <p>ID: {{genero.idGenero}}</p>
                             <p>Nombre: {{genero.nombre}}</p>
                         </section>
                     </div>
@@ -171,6 +207,9 @@
 </body>
 
 <!--script del final-->
+<script src="js/clasesPruebas/Autor.js"></script>
+<script src="js/clasesPruebas/Editorial.js"></script>
+<script src="js/clasesPruebas/Genero.js"></script>
 <script src="js/mainLibrosMod.js"></script>
 
 

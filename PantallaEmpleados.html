@@ -76,10 +76,10 @@
 
                     <section class="rowsElement_Empleado"
                     >
-                        <div class="cel1"><span>{{empleado.id}}</span></div>
+                        <div class="cel1"><span>{{empleado.idEmpleado}}</span></div>
                         <div class="cel2"><span>{{empleado.nombre}}</span></div>
                         <div class="cel3"><span>{{empleado.apellido}}</span></div>
-                        <div class="cel4"><span>{{empleado.rol}}</span></div>
+                        <div class="cel4"><span>{{empleado.tipo}}</span></div>
                         <div class="cel5"> 
                             <label class="switch">
                                 <input type="checkbox" 
@@ -92,10 +92,10 @@
                         <div class="elementComplete"
                         >
                             <section>
-                                <p>ID: {{empleado.id}}</p>
+                                <p>ID: {{empleado.idEmpleado}}</p>
                                 <p>Nombre: {{empleado.nombre}}</p>
                                 <p>Apellido: {{empleado.apellido}}</p>
-                                <p>Rol: {{empleado.rol}}</p>
+                                <p>Rol: {{empleado.tipo}}</p>
                             </section>
                         </div>
                     </section>
@@ -136,6 +136,7 @@
 
 <!--script del final
 -->
+<script src="js/clasesPruebas/Empleado.js"></script>
 <script src="js/mainEmpleados.js"></script>
 
 

@@ -90,7 +90,7 @@
                 <div id="cuerpoEntero" class="fixingLibrosCuerpo">
 
                     <section class="rowsElement_Libro">
-                    <div class="cel1"> <span>{{libros.id}}</span> </div>
+                    <div class="cel1"> <span>{{libros.idLibro}}</span> </div>
                     <div class="cel2"><span>{{libros.titulo}}</span></div>
                     <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                     <div class="cel4"><span>{{libros.editorial}}</span></div>
@@ -145,7 +145,7 @@
                         <div class="elementComplete">
                             <section>
                                 <div>
-                                    <p>Id: {{libros.id}}</p>
+                                    <p>Id: {{libros.idLibro}}</p>
                                     <p>Titulo: {{libros.titulo}}</p>
                                     <p>Precio: $ {{libros.precio}} mx</p>
                                     <p>Editorial: {{libros.editorial}}</p>
@@ -209,6 +209,7 @@
 </body>
 
 <!--script del final-->
+<script src="js/clasesPruebas/Libro.js"></script>
 <script src="js/mainLibros.js"></script>
 
 

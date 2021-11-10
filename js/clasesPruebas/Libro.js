@@ -37,5 +37,25 @@ class Libro{
         this.precio =       precio;
         this.edicion =      edicion;
         this.cantidad =     cantidad;
+        this.autores = [];
+        this.editorial = "";
+    }
+
+    set setEditorial(value){
+        this.editorial = value;
+    }
+
+    get getEditorial(){
+        return this.editorial;
+    }
+
+    set addAutor(value){
+        this.autores.push(value);
+    }
+    set addListAutor(list){
+        this.autores.push.apply(this.autores,list)
+    }
+    get getAutores(){
+        return this.autores;
     }
 }
