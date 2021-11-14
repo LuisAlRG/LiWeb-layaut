@@ -150,11 +150,17 @@
                     @extend .w3-row;
                     border-top: 1px solid black;
                     border-bottom: 1px solid black;
+                    >form{
+
+                    
                     >div{
                         @extend .w3-col;
                         overflow: hidden;
                         input{
                             width: 90%;
+                        }
+                        span{
+                            color: red;
                         }
                     }
                     >.cel1{ //id
@@ -190,6 +196,7 @@
                         svg{
                             max-height: 4em ;
                         }
+                    }
                     }
                 }
             }
@@ -232,4 +239,67 @@
         }
     }
 
+}
+
+tablaInfo>div{
+    .col-libro{
+        >div:nth-child(1){//titulo
+            @extend .l3;
+            @extend .m2;
+            @extend .s4;
+        }
+        >div:nth-child(2){//Autor
+            @extend .l3;
+            @extend .m2;
+            @extend .s4;
+        }
+        >div:nth-child(3){//Editorial
+            @extend .l2;
+            @extend .m2;
+            @extend .s4;
+        }
+        >div:nth-child(4){//Genero
+            @extend .l2;
+            @extend .m2;
+            @extend .s4;
+        }
+        >div:nth-child(5){//Precio
+            @extend .l1;
+            @extend .m2;
+            @extend .s4;
+        }
+        >div:nth-child(6){//accion
+            @extend .l1;
+            @extend .m2;
+            @extend .s4;
+            svg{
+                max-height: 4em ;
+            }
+        }
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-libro;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-libro;
+        }
+    }
 }

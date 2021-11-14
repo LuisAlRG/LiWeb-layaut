@@ -226,3 +226,33 @@ div.btnLogOut>a>button>svg{
         transform: translateX(-5px);
     }
 }
+
+/*Animacion de el boton de cruz*/
+
+svg:hover>.fondoG{
+    fill: lightgrey;
+}
+
+
+
+svg:hover>g.cruzBlancaG{
+    transform-origin:center;
+    animation: palpitar-central 1s ease-in normal;
+    animation-fill-mode: forwards;
+}
+
+svg:hover>g.cruzNegraG{
+
+    animation: palpitar-central 1s ease-in normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes palpitar-central{
+    45%{
+        
+        transform: scale(0.95);
+    }
+    60%{
+        transform: scale(1.1);
+    }
+}

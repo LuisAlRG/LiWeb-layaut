@@ -64,6 +64,11 @@ var marcador = null;
         {'ng-if':"mostOpcionesAdm && indxSelecionadoOp == $index"}
     );
 
+//Botones de submit
+    $(".aderirLibro>svg").attr(
+        {'ng-click':"submitAderir()"}
+    );
+
     app.controller('allController',function($scope,$http){
         //inicializaciones
 
@@ -147,5 +152,16 @@ var marcador = null;
 
         $scope.cambiarSelectedIndex = function(elIndex){
             return $scope.indxSelecionado == elIndex;
+        }
+
+        //efecto de botones
+        $scope.submitAderir = function(){
+            let inParm ={
+                titulo: $scope.instTexto,
+                autor:  $scope.autorIn,
+                editorial:  $scope.editorialIn,
+                precio: $scope.instPrecio
+            }
+            console.log(inParm);
         }
     });

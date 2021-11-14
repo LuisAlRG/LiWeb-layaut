@@ -26,34 +26,13 @@ $("tablaInfo>div>div>section>div.elementComplete").attr(
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
     $scope.listGenero = [
-        new Genero(
-            0,
-            "Novela"
-        ),
-        new Genero(
-            1,
-            "Romanse"
-        ),
-        new Genero(
-            2,
-            "Ciencia Fixion"
-        ),
-        new Genero(
-            3,
-            "Historico"
-        ),
-        new Genero(
-            4,
-            "De epoca"
-        ),
-        new Genero(
-            5,
-            "Terror"
-        ),
-        new Genero(
-            6,
-            "Manga"
-        )
+        new Genero(0,"Novela"),
+        new Genero(1,"Romanse"),
+        new Genero(2,"Ciencia Fixion"),
+        new Genero(3,"Historico"),
+        new Genero(4,"De epoca"),
+        new Genero(5,"Terror"),
+        new Genero(6,"Manga")
     ]
     for(let i=0;i<8;i++){
         

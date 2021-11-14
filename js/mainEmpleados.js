@@ -29,7 +29,7 @@ app.controller('allController',function($scope,$http){
         new Empleado(
             0,0,
             "Luis Alfonso",
-            "Rodrigez Gonzalez",
+            "Rodriguez Gonzalez",
             "Luis Alfonso",
             true,
             true,
@@ -53,7 +53,7 @@ app.controller('allController',function($scope,$http){
         ),
         new Empleado(3,3,
             "Daniel Roman",
-            "Sanchez Sanchez",
+            "Nuñez Aguirre",
             "Daniel Roman",
             true,
             false,

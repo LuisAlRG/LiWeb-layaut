@@ -152,7 +152,7 @@ detalleLibro{
 
 tbiAutor{
     @extend .my-top-comond-style;
-    section{
+    .col-autor{
         >div:nth-child(1){//id
             @extend .l2;
             @extend .m2;
@@ -177,10 +177,38 @@ tbiAutor{
             }
         }
     }
+    section{
+        @extend .col-autor;
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-autor;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-autor;
+        }
+    }
 }
 tbiEditorial{
     @extend .my-top-comond-style;
-    section{
+    .col-editorial{
         >div:nth-child(1){//id
             @extend .l2;
             @extend .m3;
@@ -200,10 +228,39 @@ tbiEditorial{
             }
         }
     }
+    section{
+        @extend .col-editorial;
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-editorial;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-editorial;
+        }
+    }
 }
 tbiGeneros{
     @extend .my-top-comond-style;
-    section{
+
+    .col-generos{
         >div:nth-child(1){//id
             @extend .l2;
             @extend .m3;
@@ -221,6 +278,36 @@ tbiGeneros{
             svg{
                 max-height: 4em ;
             }
+        }
+    }
+
+    section{
+        @extend .col-generos;
+    }
+
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-generos;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-generos;
         }
     }
 }

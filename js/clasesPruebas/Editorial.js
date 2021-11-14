@@ -12,7 +12,7 @@ class Editorial {
                     nombre = posibleNumero.nombre;
                     break;
                 }
-                idEditorial =posibleNumer;
+                idEditorial = posibleNumero;
         }
         this.idEditorial =  idEditorial;
         this.nombre =       nombre;
