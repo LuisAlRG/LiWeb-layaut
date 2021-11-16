@@ -43,29 +43,43 @@
                 </form>
             </div>
             <div>
-                <form action="autorBusqueda" method="post">
+                <form action="buscarAutorLib" method="post">
                     <label for="autorID">Clave Autor</label> 
-                    <input type="number" name="autorID" id="autorID">
+                    <input type="number" name="autorID" id="autorID"
+                        ng-model="autorID"
+                    >
                     <label for="autorNombre">Nombre(s)</label>
-                    <input type="text" name="autorNombre" id="autorNombre"> 
+                    <input type="text" name="autorNombre" id="autorNombre"
+                        ng-model="autorNombre"
+                    > 
                     <label for="autorApellido">Apellido(s)</label>
-                    <input type="text" name="autorApellido" id="autorApellido"> 
+                    <input type="text" name="autorApellido" id="autorApellido"
+                        ng-model="autorApellido"
+                    > 
                 </form>
             </div>
             <div>
-                <form action="editorialBusqueda" method="post">
+                <form action="buscarEditorialLib" method="post">
                     <label for="editoID">Clave Editorial</label>
-                    <input type="number" name="editoID" id="editoID">
+                    <input type="number" name="editoID" id="editoID"
+                        ng-model="editoID"
+                    >
                     <label for="editoNombre">Nombre</label> 
-                    <input type="text" name="editoNombre" id="editoNombre"> 
+                    <input type="text" name="editoNombre" id="editoNombre"
+                        ng-model="editoNombre"
+                    > 
                 </form>
             </div>
             <div>
-                <form action="generoBusqueda" method="post">
+                <form action="buscarGeneroLib" method="post">
                     <label for="generoID">Clave Genero</label>
-                    <input type="number" name="generoID" id="generoID">
+                    <input type="number" name="generoID" id="generoID"
+                        ng-model="generoID"
+                    >
                     <label for="generoNombre">Nombre</label> 
-                    <input type="text" name="generoNombre" id="generoNombre"> 
+                    <input type="text" name="generoNombre" id="generoNombre"
+                        ng-model="generoNombre"
+                    > 
                 </form>
             </div>
         </accionesInputs>

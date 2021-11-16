@@ -27,12 +27,18 @@
         </banerSeccion>
         <accionesInputs>
             <div>
-                <form action="filtrar" method="post">
+                <form action="buscarVenta" method="post">
                     <label for="clave">Clave de venta</label> 
-                    <input type="number" name="clave" id="claveID"> 
+                    <input type="number" name="clave" id="claveID"
+                        ng-model="clave"
+                    > 
                     <label for="fecha">Fecha</label> <br>
-                    <input type="date" name="fecha" id="fechaVal" >
-                    <select name="categoria" id="categoriaType" >
+                    <input type="date" name="fecha" id="fechaVal" 
+                        ng-model="fecha"
+                    >
+                    <select name="categoria" id="categoriaType"
+                        ng-model="categoria"
+                    >
                         <option value="exact">Exactamente la fecha</option>
                         <option value="menor">Antes de fecha</option>
                         <option value="mayor">Despues de la fecha</option>
@@ -40,9 +46,13 @@
                         <option value="mes">Hace el mes</option>
                     </select>
                     <label for="cliente">Cliente</label>
-                    <input type="text" name="cliente" id="clienteName">
+                    <input type="text" name="cliente" id="clienteName"
+                        ng-model="cliente"
+                    >
                     <label for="responsable">Responsable</label>
-                    <input type="text" name="responsable" id="responsableName">
+                    <input type="text" name="responsable" id="responsableName"
+                        ng-model="responsable"
+                    >
                 </form>
             </div>
         </accionesInputs>

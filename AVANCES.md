@@ -7,3 +7,7 @@ En este avance comensare con agregar los ´ng-model´ a los elementos de los for
 Avance 14 11 21
     cambie el formato de pie de tabla para que estuviese mas ordenado y de paso agregarle los 'ng-model'
     ya aderi la accion para ir a la pantalla de modificacion de libro
+
+Avance 15 11 21
+    Termine de agregar los ng-model y he empesado a probar dformas de hacer modificaciones a los elementos de libros (comenzando con el autor)
+

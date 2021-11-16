@@ -36,18 +36,26 @@
             <div>
                 <form action="accion" method="post">
                     <label for="filtro">Tipo de Operacion</label>
-                    <select name="filtro" id="filtro">
+                    <select name="filtro" id="filtro"
+                        ng-model="filtro"
+                    >
                         <option value="Nada">--</option>
                         <option value="Ventas">Ventas</option>
                         <option value="Libros">Libros</option>
                         <option value="Empleados">Empleados</option>
                     </select>
                     <label for="contenido">Contenido</label> 
-                    <input type="text" name="contenido" id="contenido"> 
+                    <input type="text" name="contenido" id="contenido"
+                        ng-model="contenido"
+                    > 
                     <label for="fechaMin">Fecha Minima</label>
-                    <input type="date" name="fechaMin" id="fechaMin">
+                    <input type="date" name="fechaMin" id="fechaMin"
+                        ng-model="fechaMin"
+                    >
                     <label for="fechaMax">Fecha Maxima</label>
-                    <input type="date" name="fechaMax" id="fechaMax">
+                    <input type="date" name="fechaMax" id="fechaMax"
+                        ng-model="fechaMax"
+                    >
                 </form>
             </div>
         </accionesInputs>

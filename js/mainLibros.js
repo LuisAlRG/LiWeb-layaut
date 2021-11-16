@@ -164,4 +164,10 @@ var marcador = null;
             }
             console.log(inParm);
         }
+
+        $scope.OnModificar=function(numeroId){
+            console.log("si paso");
+            let nombreid = "goToModif" + numeroId;
+            document.getElementById(nombreid).submit();
+        }
     });

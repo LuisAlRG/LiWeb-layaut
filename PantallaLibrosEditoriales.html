@@ -39,9 +39,13 @@
             <div>
                 <form action="buscarEditorial" method="post">
                     <label for="clave">Clave</label>
-                    <input type="number" name="clave" id="clave">
+                    <input type="number" name="clave" id="clave"
+                        ng-model="clave"
+                    >
                     <label for="nombre">Nombre</label> 
-                    <input type="text" name="nombre" id="nombre"> 
+                    <input type="text" name="nombre" id="nombre"
+                        ng-model="nombre"
+                    > 
                 </form>
             </div>
         </accionesInputs>

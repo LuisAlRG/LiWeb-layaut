@@ -34,15 +34,23 @@
         <accionesInputs>
             <!--Acciones de Inputs (accionesInputs) -->
             <div>
-                <form action="accion" method="post">
+                <form action="buscarEmpleados" method="post">
                     <label for="clave">Clave</label>
-                    <input type="number" name="clave" id="clave">
+                    <input type="number" name="clave" id="clave"
+                        ng-model="clave"
+                    >
                     <label for="nombre">Nombre</label> 
-                    <input type="text" name="nombre" id="nombre"> 
+                    <input type="text" name="nombre" id="nombre"
+                        ng-model="nombre"
+                    > 
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" id="apellido">
+                    <input type="text" name="apellido" id="apellido"
+                        ng-model="apellido"
+                    >
                     <label for="rolSelect">Rol</label>
-                    <select name="rolSelect" id="rolSelect">
+                    <select name="rolSelect" id="rolSelect"
+                        ng-model="rolSelect"
+                    >
                         <option value="Todos">sin filltro</option>
                         <option value="Gerente">Gerente</option>
                         <option value="Administrador">Administrador</option>
@@ -101,30 +109,51 @@
                     </section>
 
                 </div>
-                <div id="pieTabla">
-                    <section id="rowsNewElement_Empleado">
-                        <div class="cel1"> <span>--</span> </div>
-                        <div class="cel2"> Nombre Usuario: <input type="text" name="instName" id="InstName"> </div>
-                        <div class="cel3"> 
-                            Puesto: 
-                            <select name="instRolSelect" id="instRolSelect">
-                                <option value="Todos">sin filltro</option>
-                                <option value="Gerente">Gerente</option>
-                                <option value="Administrador">Administrador</option>
-                                <option value="Funcionario">Funcionario</option>
+                <div class="pieTabla">
+                    <div>Nombre</div>
+                    <div>Apellidos</div>
+                    <div>Contraseña</div>
+                    <div>Rol</div>
+                    <div>Aderir</div>
+                    <form action="aderirEmpleado" id="aEmpleado">
+                        <div>
+                            <input type="text" name="nombreEmpleado" id="nombreEmpleado"
+                                ng-model="nombreEmpleado"
+                            >
+                        </div>
+                        <div>
+                            <input type="text" name="apellidoEmpleado" id="apellidoEmpleado"
+                                ng-model="apellidoEmpleado"
+                            >
+                        </div>
+                        <div>
+                            <input type="password" name="passEmpleado" id="passEmpleado"
+                                ng-model="passEmpleado"
+                            >
+                        </div>
+                        <div>
+                            <select name="rolEmpleado" id="rolEmpleado" 
+                                ng-model="rolEmpleado"
+                            >
+                                <option value=1>Gerente</option>
+                                <option value=2>Administrador</option>
+                                <option value=3>Funcionario</option>
                             </select>
                         </div>
-                        <div class="cel4">
+                        <div>
                             <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="45" fill="#008000"/>
-                                <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
-                                <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
-                                <rect x="42" y="17" width="15" height="65" fill="white"/>
-                                <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
-                                </svg>
-                                
+                                <circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>
+                                <g class="cruzNegraG">
+                                    <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
+                                    <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                                </g>
+                                <g class="cruzBlancaG">
+                                    <rect x="42" y="17" width="15" height="65" fill="white"/>
+                                    <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                                </g>
+                            </svg>
                         </div>
-                    </section>
+                    </form>
                 </div>
             </div>
         </tablaInfo>

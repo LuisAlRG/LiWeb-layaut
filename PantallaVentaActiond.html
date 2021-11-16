@@ -29,28 +29,45 @@
         </banerSeccion>
         <accionesInputs>
             <div>
-                <form action="Insertar" method="post">
-                    <label for="clave">Clave del libreo</label> 
-                    <input type="number" name="clave" id="claveID"> 
-
-                    <label for="cliente">Cliente</label>
-                    <input type="text" name="cliente" id="clienteName">
-                    
+                <form action="buscarLibro">
+                    <label for="clave">Clave del libro</label> 
+                    <input type="number" name="clave" id="clave"
+                        ng-model="clave"
+                    >
                     <label for="tituloLibro">Titulo</label> <br>
-                    <input type="date" name="tituloLibro" id="tituloLibro">
-                    
+                    <input type="text" name="tituloLibro" id="tituloLibro"
+                        ng-model="tituloLibro"
+                    >
                     <label for="precio">Precio</label>
-                    <input type="number" name="precio" id="pracioVal">
-
-                    <select name="categoria" id="categoriaType" >
-                        <option value="menor">Mayor al precio</option>
-                        <option value="mayor">Menor al precio</option>
+                    <input type="number" name="precio" id="precio"
+                        ng-model="precio"
+                    >
+                    <select name="categoria" id="categoria"
+                        ng-model="categoria"
+                    >
+                        <option value="1">Mayor al precio</option>
+                        <option value="2">Menor al precio</option>
                     </select>
-                    
-                    <label for="responsable">Responsable</label>
-                    <input type="text" name="responsable" id="responsableName">
-
                 </form>
+
+                <form action="Insertar" method="post">
+                    <label for="cliente">Cliente</label>
+                    <input type="text" name="cliente" id="cliente"
+                        ng-model="cliente"
+                    >
+                    label for="responsable">Responsable</label>
+                    <input type="text" name="responsable" id="responsable" disabled
+                        ng-model="responsable"
+                    >
+
+                    <input type="hidden" name="librosSelct" id="librosSelct"
+                        ng-model="librosSelct"
+                    >
+                    <input type="hidden" name="librosCantidad" id="librosCantidad"
+                        ng-model="librosCantidad"
+                    >
+                </form>
+
             </div>
         </accionesInputs>
         <botonesDeAccion>

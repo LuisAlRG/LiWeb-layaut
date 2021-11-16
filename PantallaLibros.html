@@ -35,24 +35,42 @@
         <accionesInputs>
             <!-- Acciones de Inputs (accionesInputs)-->
             <div>
-                <form action="libroConsultar" method="post">
+                <form action="buscarLibro" method="post">
                     <div id="claveSection">
-                    <label for="claveID">Clave</label> 
-                    <input type="number" name="claveID" id="claveID"> 
+                    <label for="clave">Clave</label> 
+                    <input type="number" name="clave" id="clave"
+                        ng-model="clave"
+                    > 
                     </div>
                     <div id="edicionSection">
                     <label for="edicion">Edicion</label>
-                    <input type="number" name="edicion" id="edicion"> 
+                    <input type="number" name="edicion" id="edicion"
+                        ng-model="edicion"
+                    > 
                     </div>
                     <label for="precio">Precio</label>
-                    <input type="number" name="precio" id="precio">
+                    <input type="number" name="precio" id="precio"
+                        ng-model="precio"
+                    >
+                    <select name="categoria" id="categoria"
+                        ng-model="categoria"
+                    >
+                        <option value="1">Mayor al precio</option>
+                        <option value="2">Menor al precio</option>
+                    </select>
 
                     <label for="tituloL">Titulo</label>
-                    <input type="text" name="tituloL" id="tituloL">
+                    <input type="text" name="tituloL" id="tituloL"
+                        ng-model="tituloL"
+                    >
                     <label for="autorL">Autor</label>
-                    <input type="text" name="autorL" id="autorL">
+                    <input type="text" name="autorL" id="autorL"
+                        ng-model="autorL"
+                    >
                     <label for="editorialL">Editorial</label>
-                    <input type="text" name="editorialL" id="editorialL">
+                    <input type="text" name="editorialL" id="editorialL"
+                        ng-model="editorialL"
+                    >
                 </form>
             </div>
         </accionesInputs>
@@ -110,8 +128,14 @@
                         <div class="opcionesAdm">
                             <section>
                                 <div>
-                                    <a href="PantallaLibrosMod.html">
-                                    <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <form action="PantallaLibrosMod.html" method="post" id="goToModif{{libros.idLibro}}">
+                                        <input type="hidden" name="thisLibroId" id="thisLibroId"
+                                            ng-model="thisLibroId"
+                                            value={{libros.idLibro}}
+                                        >
+                                    <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        ng-click="OnModificar(libros.idLibro)"
+                                    >
                                         <circle id="Ellipse 1" cx="50" cy="50" r="45" fill="#008000"/>
                                         <g id="LapizSombra">
                                         <path id="Polygon 1" d="M24.3015 82.6985L31.0258 57.603L49.397 75.9742L24.3015 82.6985Z" fill="black" fill-opacity="0.45"/>
@@ -128,8 +152,7 @@
                                         <path id="Ellipse 2_2" d="M61.3137 19.3015C63.7517 16.8635 67.0583 15.4939 70.5061 15.4939C73.9539 15.4939 77.2605 16.8635 79.6985 19.3015C82.1365 21.7395 83.5061 25.0461 83.5061 28.4939C83.5061 31.9417 82.1365 35.2483 79.6985 37.6863L70.5061 28.4939L61.3137 19.3015Z" fill="white"/>
                                         </g>
                                     </svg>
-                                    </a>
-                                    <br>
+                                    </form>
                                     Modificar
                                 </div>
                                 <div>
@@ -173,7 +196,7 @@
                     <div>Genero</div>
                     <div>Precio</div>
                     <div>Aderir</div> <br>
-                    <form action="" id="aLibro">
+                    <form action="aderirLibro" id="aLibro">
                         <div>
                             <input type="text" name="tituloLibroA" id="tituloLibroA"
                                 ng-model="tituloLibroA"
