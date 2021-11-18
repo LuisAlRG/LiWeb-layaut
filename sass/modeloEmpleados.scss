@@ -82,6 +82,9 @@
                         overflow: hidden;
                     }
                     >.cel5{
+                        svg{
+                            max-height: 4em ;
+                        }
                         /* The switch - the box around the slider */
                         .switch {
                             position: relative;
@@ -146,10 +149,7 @@
                         }
                     }
                     >.elementComplete{
-                        
-                        
                         section{
-                            
                             >div{
                                 display: block;
                                 @extend .w3-col;
@@ -157,6 +157,9 @@
                                 @extend .m6;
                                 @extend .s12;
                                 max-height: fit-content;
+                            }
+                            svg{
+                                height: 4em ;
                             }
                         }
                     }

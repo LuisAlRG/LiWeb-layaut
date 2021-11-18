@@ -50,12 +50,13 @@
                     </select>
                 </form>
 
-                <form action="Insertar" method="post">
+                <form action="realizarCompra" id="realizarCompra" method="post">
+                    
                     <label for="cliente">Cliente</label>
-                    <input type="text" name="cliente" id="cliente"
+                    <input type="text" name="cliente" id="cliente" required
                         ng-model="cliente"
                     >
-                    label for="responsable">Responsable</label>
+                    <label for="responsable">Responsable</label>
                     <input type="text" name="responsable" id="responsable" disabled
                         ng-model="responsable"
                     >
@@ -92,7 +93,7 @@
                 <div id="cuerpoEntero">
                     <section class="rowsElement_Libro"
                     >
-                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
+                        <div class="cel1"> <span>{{libros.idLibro}}</span> </div>
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
                         <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                         <div class="cel4"><span>{{libros.editorial}}</span></div>
@@ -106,7 +107,7 @@
                         >
                             <section>
                                 <div>
-                                    <p>Id: {{libros.id}}</p>
+                                    <p>Id: {{libros.idLibro}}</p>
                                     <p>Titulo: {{libros.titulo}}</p>
                                     <p>Precio: $ {{libros.precio}} mx</p>
                                     <p>Editorial: {{libros.editorial}}</p>
@@ -140,7 +141,7 @@
                 <div id="cuerpoEntero">
                     <section class="rowsElement_Libro"
                     >
-                        <div class="cel1" ng-click="mostElemento=(mostElemento ? false : true);"> <span>{{libros.id}}</span> </div>
+                        <div class="cel1"> <span>{{libros.idLibro}}</span> </div>
                         <div class="cel2"><span>{{libros.titulo}}</span></div>
                         <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                         <div class="cel4"><span>{{libros.editorial}}</span></div>
@@ -158,14 +159,14 @@
                                     <path  d="M324.274 466.583L350 119H306L279.301 456.504C278.684 464.305 272.174 470.321 264.348 470.321H254.743C246.174 470.321 239.347 463.155 239.761 454.596L256 119H197.625V455.321C197.625 463.605 190.909 470.321 182.625 470.321H175V499H289.37C307.697 499 322.921 484.861 324.274 466.583Z" fill="black"/>
                            
                                 </g>
-                                 </svg>
+                            </svg>
                         </div>
                         
                         <div class="elementComplete"
                         >
                             <section>
                                 <div>
-                                    <p>Id: {{libros.id}}</p>
+                                    <p>Id: {{libros.idLibro}}</p>
                                     <p>Titulo: {{libros.titulo}}</p>
                                     <p>Precio: $ {{libros.precio}} mx</p>
                                     <p>Editorial: {{libros.editorial}}</p>
@@ -188,7 +189,7 @@
         <!-- Precio y opcion de comprar -->
         <especialVenta>
             <section>
-                <span> Precio total: ${{precioTotal}} MX </span>
+                <span ng-click="AccionRealizarVenta()"> Precio total: ${{precioTotal}} MX </span>
                 <a href="PantallaVentaActionElement.html"><button ng-show="mostrarBtnVenta();"> Realizar venta </button></a> 
             </section>
         </especialVenta>
@@ -196,5 +197,6 @@
 
     
 </body>
+<script src="js/clasesPruebas/Libro.js"></script>
 <script src="js/mainActVenta.js"></script>
 </html>

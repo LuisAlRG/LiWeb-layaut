@@ -25,7 +25,17 @@
                 <div class="resetFloat"></div>
             </div>
         </banerSeccion>
-        
+        <accionesInputs>
+            <form action="aplicarVenta" id="aplicarVenta" method="post">
+                
+                <input type="hidden" name="librosSelct" id="librosSelct"
+                    ng-model="librosSelct"
+                >
+                <input type="hidden" name="librosCantidad" id="librosCantidad"
+                    ng-model="librosCantidad"
+                >
+            </form>
+        </accionesInputs>
         <botonesDeAccion>
             <div>
                 <p>Metodo de pago:</p>
@@ -54,8 +64,6 @@
                         <div class="cel3"><span>{{libros.autores.slice(0,3).join(", ")}}</span></div>
                         <div class="cel4"><span>{{libros.editorial}}</span></div>
                         <div class="cel5"><span>{{ getPrecioConFotmato(libros.precio) }}</span></div>
-                        
-                        
                         
                         <div class="elementComplete">
                             <section>

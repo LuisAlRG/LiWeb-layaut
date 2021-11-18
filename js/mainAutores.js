@@ -1,5 +1,3 @@
-
-
 var app = angular.module('allApp',[]);
 var marcador = null;
 
@@ -30,8 +28,8 @@ $("tablaInfo>div>div>section>div.opcionesAdm").attr(
 );
 
 $("div.opcionesAdm>section>div:nth-child(1)>svg").attr(
-    {'ng-click':"OnModificarAutor(autor)"}
-)
+    {'ng-click':"OnModificarAutor(autor,$index)"}
+);
 
 app.controller('allController',function($scope,$http){
     //inicialisar valores globales
@@ -68,42 +66,59 @@ app.controller('allController',function($scope,$http){
         $scope.indxSelecionadoOp = elIndex;
     }
 
-    $scope.OnModificarAutor = function(autor){
+    
+    $scope.OnModificarAutor = function(autor, thisindex){
+        console.log(autor);
         let claseElemento = ".element"+autor.idAutor
         console.log(claseElemento);
-        console.log(autor);
-
-        let columna1='<div class="cel1"> <input type="number" name="claveM" id="claveM" value='+autor.idAutor+' disabled> </div>',
-        columna2='<div class="cel2"> <input type="text" name="nombreAutorM" id="nombreAutorM" value="'+autor.nombre+'"></div>',
-        columna3='<div class="cel3"> <input type="text" name="apellidoAutorM" id="apellidoAutorM" value="'+autor.apellido+'"> </div>',
-        columna4='<div class="cel4"> '+
-        '<svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">'+
-            '<circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>'+
-            '<g class="cruzNegraG">'+
-                '<rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>'+
-                '<rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>'+
+        $scope.indxSelecionadoOp = -1;
+        $scope.indxSelecionado = -1;
+        let 
+        columna1='<div class="cel1 Quitable"> <input type="number" name="claveM" id="claveM" value='+autor.idAutor+' disabled> </div>',
+        columna2='<div class="cel2 Quitable"> <input type="text" name="nombreAutorM" id="nombreAutorM" value="'+autor.nombre+'"></div>',
+        columna3='<div class="cel3 Quitable"> <input type="text" name="apellidoAutorM" id="apellidoAutorM" value="'+autor.apellido+'"> </div>',
+        columna4='<div class="cel4 Quitable"> '+
+        '<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" ng-click="">'+
+            '<rect id="Rectangle 1" width="100" height="100" fill="white"/>'+
+            '<circle id="fondo" cx="50" cy="50" r="45" fill="#008000"/>'+
+            '<g id="Sombra">'+
+            '<path id="Vector 1" d="M87.25 39.75L41.25 86.25L13.75 58.25L24.25 47.75L41.25 64.25L76.75 28.75L87.25 39.75Z" fill="black" fill-opacity="0.4"/>'+
             '</g>'+
-            '<g class="cruzBlancaG">'+
-                '<rect x="42" y="17" width="15" height="65" fill="white"/>'+
-                '<rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>'+
+            '<g id="ElementoClave">'+
+            '<rect id="Rectangle 2" x="75.9325" y="23.9706" width="15" height="65" transform="rotate(45 75.9325 23.9706)" fill="white"/>'+
+            '<rect id="Rectangle 3" x="51.1838" y="69.9325" width="15" height="39" transform="rotate(135 51.1838 69.9325)" fill="white"/>'+
             '</g>'+
         '</svg>'+
         '</div>'
-        //$(claseElemento).remove();
-        $(claseElemento).empty();
+        $(claseElemento + ">div").toggleClass("putItInvisible");
         $(claseElemento).append(
             columna1+
             columna2+
             columna3+
             columna4
         );
-        $(claseElemento).ready(function(){
-             $("svg").click(function(){
-                let clave =     $("#claveM").val(),
-                nombre =        $("#nombreAutorM").val(),
-                apellido =      $("#apellidoAutorM").val()
-                console.log([clave,nombre,apellido])
-            });
+        $(claseElemento+">div.Quitable svg").click(function(){
+            let 
+            clave =     $("#claveM").val(),
+            nombre =        $("#nombreAutorM").val(),
+            apellido =      $("#apellidoAutorM").val()
+            /*$http.post('modificarAutor',{}).then(
+                function(response){
+                    let datoRespuesta = response.data;
+                    if(datoRespuesta){
+
+                    }
+                },
+                function(response){
+                    $scope.mensId = "Error de conexion al tratar de modificar";
+                }
+            );*/
+            console.log([clave,nombre,apellido]);
+            $(".Quitable").remove();
+            $scope.listAutores[thisindex].nombre = nombre;
+            $scope.listAutores[thisindex].apellido = apellido;
+            $(claseElemento + ">div").toggleClass("putItInvisible");
+            $scope.$apply();
         });
     }
 });
