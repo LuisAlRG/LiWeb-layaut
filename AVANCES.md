@@ -16,3 +16,5 @@ Avance 17 11 21
     Las tablas modificables ya tienen el espacio para la modificacion instantanea.
     se empezaron a agregar las peticiones para hacer post consultas
 
+Avance 1 23 11 21
+    Modificaciones menores para poder ser llevado al servidor

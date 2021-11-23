@@ -155,7 +155,7 @@
                     <form action="aderirEmpleado" id="aEmpleado">
                         <div>
                             <input type="text" name="nombreEmpleado" id="nombreEmpleado"
-                                ng-model="nombreEmpleado"
+                                ng-model="nombreEmpleado" required
                             >
                         </div>
                         <div>
@@ -165,12 +165,12 @@
                         </div>
                         <div>
                             <input type="password" name="passEmpleado" id="passEmpleado"
-                                ng-model="passEmpleado"
+                                ng-model="passEmpleado" required
                             >
                         </div>
                         <div>
                             <select name="rolEmpleado" id="rolEmpleado" 
-                                ng-model="rolEmpleado"
+                                ng-model="rolEmpleado" required
                             >
                                 <option value=1>Funcionario</option>
                                 <option value=2>Administrador</option>
@@ -202,7 +202,7 @@
 
 <!--script del final
 -->
-<script src="js/clasesPruebas/Empleado.js"></script>
+<script src="js/ClasesLocales/Empleado.js"></script>
 <script src="js/mainEmpleados.js"></script>
 
 
