@@ -82,6 +82,9 @@
                         overflow: hidden;
                     }
                     >.cel5{
+                        svg{
+                            max-height: 4em ;
+                        }
                         /* The switch - the box around the slider */
                         .switch {
                             position: relative;
@@ -146,10 +149,7 @@
                         }
                     }
                     >.elementComplete{
-                        
-                        
                         section{
-                            
                             >div{
                                 display: block;
                                 @extend .w3-col;
@@ -157,6 +157,9 @@
                                 @extend .m6;
                                 @extend .s12;
                                 max-height: fit-content;
+                            }
+                            svg{
+                                height: 4em ;
                             }
                         }
                     }
@@ -203,6 +206,64 @@
                 }
                 
             }
+        }
+    }
+}
+
+tablaInfo>div{
+    .col-empleados{
+        >div:nth-child(1){//nombre
+            @extend .l3;
+            @extend .m3;
+            @extend .s3;
+        }
+        >div:nth-child(2){//apellido
+            @extend .l3;
+            @extend .m3;
+            @extend .s3;
+        }
+        >div:nth-child(3){//contrasena
+            @extend .l3;
+            @extend .m2;
+            @extend .s3;
+        }
+        >div:nth-child(4){//rol
+            @extend .l2;
+            @extend .m2;
+            @extend .s2;
+        }
+        >div:nth-child(5){//aderir
+            @extend .l1;
+            @extend .m2;
+            @extend .s1;
+            svg{
+                max-height: 4em ;
+            }
+        }
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-empleados;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-empleados;
         }
     }
 }

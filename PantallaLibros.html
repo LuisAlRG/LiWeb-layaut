@@ -9,7 +9,7 @@
     <!-- principalStyle son el estilo base delas pantalla, si se sigue esta estructura las pantallas seran iguales -->
     <link rel="stylesheet" href="css/principalStyle.css">
     <link rel="stylesheet" href="css/modeloLibros.css">
-    
+    <link rel="stylesheet" href="css/svgAnimaciones.css">
 
     <!-- librerias  -->
     <script src="js/angular.min.js"></script>
@@ -35,24 +35,42 @@
         <accionesInputs>
             <!-- Acciones de Inputs (accionesInputs)-->
             <div>
-                <form action="libroConsultar" method="post">
+                <form action="buscarLibro" method="post">
                     <div id="claveSection">
-                    <label for="claveID">Clave</label> 
-                    <input type="number" name="claveID" id="claveID"> 
+                    <label for="clave">Clave</label> 
+                    <input type="number" name="clave" id="clave"
+                        ng-model="clave"
+                    > 
                     </div>
                     <div id="edicionSection">
                     <label for="edicion">Edicion</label>
-                    <input type="number" name="edicion" id="edicion"> 
+                    <input type="number" name="edicion" id="edicion"
+                        ng-model="edicion"
+                    > 
                     </div>
                     <label for="precio">Precio</label>
-                    <input type="number" name="precio" id="precio">
+                    <input type="number" name="precio" id="precio"
+                        ng-model="precio"
+                    >
+                    <select name="categoria" id="categoria"
+                        ng-model="categoria"
+                    >
+                        <option value="1">Mayor al precio</option>
+                        <option value="2">Menor al precio</option>
+                    </select>
 
                     <label for="tituloL">Titulo</label>
-                    <input type="text" name="tituloL" id="tituloL">
+                    <input type="text" name="tituloL" id="tituloL"
+                        ng-model="tituloL"
+                    >
                     <label for="autorL">Autor</label>
-                    <input type="text" name="autorL" id="autorL">
+                    <input type="text" name="autorL" id="autorL"
+                        ng-model="autorL"
+                    >
                     <label for="editorialL">Editorial</label>
-                    <input type="text" name="editorialL" id="editorialL">
+                    <input type="text" name="editorialL" id="editorialL"
+                        ng-model="editorialL"
+                    >
                 </form>
             </div>
         </accionesInputs>
@@ -110,7 +128,14 @@
                         <div class="opcionesAdm">
                             <section>
                                 <div>
-                                    <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <form action="PantallaLibrosMod.html" method="post" id="goToModif{{libros.idLibro}}">
+                                        <input type="hidden" name="thisLibroId" id="thisLibroId"
+                                            ng-model="thisLibroId"
+                                            value={{libros.idLibro}}
+                                        >
+                                    <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        ng-click="OnModificar(libros.idLibro)"
+                                    >
                                         <circle id="Ellipse 1" cx="50" cy="50" r="45" fill="#008000"/>
                                         <g id="LapizSombra">
                                         <path id="Polygon 1" d="M24.3015 82.6985L31.0258 57.603L49.397 75.9742L24.3015 82.6985Z" fill="black" fill-opacity="0.45"/>
@@ -127,15 +152,21 @@
                                         <path id="Ellipse 2_2" d="M61.3137 19.3015C63.7517 16.8635 67.0583 15.4939 70.5061 15.4939C73.9539 15.4939 77.2605 16.8635 79.6985 19.3015C82.1365 21.7395 83.5061 25.0461 83.5061 28.4939C83.5061 31.9417 82.1365 35.2483 79.6985 37.6863L70.5061 28.4939L61.3137 19.3015Z" fill="white"/>
                                         </g>
                                     </svg>
-                                    <br>
+                                    </form>
                                     Modificar
                                 </div>
                                 <div>
-                                    <svg viewBox="-10 -10 380 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 110C0 87.9086 17.9086 70 40 70H310C332.091 70 350 87.9086 350 110V110H0V110Z" fill="black"/>
-                                        <path d="M100 70C100 47.9086 117.909 30 140 30H210C232.091 30 250 47.9086 250 70V70H100V70Z" fill="black"/>
-                                        <path d="M25.7257 466.583L0 119H44L70.6987 456.504C71.3158 464.305 77.8264 470.321 85.6519 470.321H95.2566C103.826 470.321 110.653 463.155 110.239 454.596L94 119H152.375V455.321C152.375 463.605 159.091 470.321 167.375 470.321H175V499H60.6303C42.3025 499 27.0785 484.861 25.7257 466.583Z" fill="black"/>
-                                        <path d="M324.274 466.583L350 119H306L279.301 456.504C278.684 464.305 272.174 470.321 264.348 470.321H254.743C246.174 470.321 239.347 463.155 239.761 454.596L256 119H197.625V455.321C197.625 463.605 190.909 470.321 182.625 470.321H175V499H289.37C307.697 499 322.921 484.861 324.274 466.583Z" fill="black"/>
+                                    <svg class="boteDeBasura" viewBox="-10 -10 380 510" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    ng-click="libros.selected=false; accionRemoverSeleccion($index)"
+                                    >
+                                        <path class="tapa" d="M0 110C0 87.9086 17.9086 70 40 70H310C332.091 70 350 87.9086 350 110V110H0V110Z" fill="black"/>
+                                        <path class="tapa" d="M100 70C100 47.9086 117.909 30 140 30H210C232.091 30 250 47.9086 250 70V70H100V70Z" fill="black"/>
+                                        
+                                        <g class="cubo">
+                                            <path  d="M25.7257 466.583L0 119H44L70.6987 456.504C71.3158 464.305 77.8264 470.321 85.6519 470.321H95.2566C103.826 470.321 110.653 463.155 110.239 454.596L94 119H152.375V455.321C152.375 463.605 159.091 470.321 167.375 470.321H175V499H60.6303C42.3025 499 27.0785 484.861 25.7257 466.583Z" fill="black"/>
+                                            <path  d="M324.274 466.583L350 119H306L279.301 456.504C278.684 464.305 272.174 470.321 264.348 470.321H254.743C246.174 470.321 239.347 463.155 239.761 454.596L256 119H197.625V455.321C197.625 463.605 190.909 470.321 182.625 470.321H175V499H289.37C307.697 499 322.921 484.861 324.274 466.583Z" fill="black"/>
+                                
+                                        </g>
                                     </svg>
                                     <br>
                                     Borrar
@@ -164,42 +195,72 @@
                     </section>
 
                 </div>
-                <div id="pieTabla">
-                    <section id="rowsNewElement_Libro">
-                        <div class="cel1"> <span>--</span> </div>
-                        <div class="cel2"> <input type="text" name="instTexto" id="instTexto"> </div>
-                        <div class="cel3"> 
-                            <input list="autoresSelect">
-                            <datalist id="autoresSelect">
+                <div class="pieTabla">
+                    <div>Titulo</div>
+                    <div>1ºAutor</div>
+                    <div>Editorial</div>
+                    <div>Genero</div>
+                    <div>Precio</div>
+                    <div>Aderir</div> <br>
+                    <form action="aderirLibro" id="aLibro">
+                        <div>
+                            <input type="text" name="tituloLibroA" id="tituloLibroA"
+                                ng-model="tituloLibroA"
+                            >
+                        </div>
+                        <div>
+                            <input type="text" list="autoresNamesFound" name="autorLibroA" id="autorLibroA"
+                                ng-model="autorLibroA"
+                            >
+                            <datalist id="autoresNamesFound">
                                 <option 
-                                    ng-repeat="autores in listMostAutores track by $index"
-                                    value="{{autores.nombre}}"
-                                >
+                                    ng-repeat="autor in listBusqGenero"
+                                    value="{{autor.nombre}}-{{autor.apellido}}"
+                                >clave: {{autor.idAutor}} </option>
                             </datalist>
                         </div>
-                        <div class="cel4">
-                            <input list="editorialSelect">
-                            <datalist id="editorialSelect">
+                        <div>
+                            <input type="text" list="editorialesNamesFound" name="editorialLibroA" id="editorialLibroA"
+                                ng-model="editorialLibroA"
+                            >
+                            <datalist id="editorialesNamesFound">
                                 <option 
-                                    ng-repeat="editorial in listMostEditorial track by $index"
+                                    ng-repeat="editorial in listBusqEditorial"
                                     value="{{editorial.nombre}}"
-                                >
+                                >clave: {{editorial.idEditorial}}</option>
                             </datalist>
                         </div>
-                        <div class="cel5">
-                            <input type="number" name="instPrecio" id="instPrecio">
+                        <div>
+                            <input type="text" list="generosNamesFound" name="generoLibroA" id="generoLibroA"
+                                ng-model="generoLibroA"
+                            >
+                            <datalist id="generosNamesFound">
+                                <option 
+                                    ng-repeat="genero in listBusqGenero"
+                                    value="{{genero.nombre}}"
+                                >clave: {{genero.idGenero}}</option>
+                            </datalist>
                         </div>
-                        <div class="cel6">
+                        <div>
+                            <input type="number" name="precioLibroA" id="precioLibroA"
+                                ng-model="precioLibroA"
+                            >
+                        </div>
+                        <div>
                             <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="45" fill="#008000"/>
-                                <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
-                                <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
-                                <rect x="42" y="17" width="15" height="65" fill="white"/>
-                                <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
-                                </svg>
+                                <circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>
+                                <g class="cruzNegraG">
+                                    <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
+                                    <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                                </g>
+                                <g class="cruzBlancaG">
+                                    <rect x="42" y="17" width="15" height="65" fill="white"/>
+                                    <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                                </g>
+                            </svg>
                         </div>
-                    </section>
-                </div>
+                    </form>
+            </div>
             </div>
         </tablaInfo>
 
@@ -209,7 +270,7 @@
 </body>
 
 <!--script del final-->
-<script src="js/clasesPruebas/Libro.js"></script>
+<script src="js/ClasesLocales/Libro.js"></script>
 <script src="js/mainLibros.js"></script>
 
 

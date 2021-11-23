@@ -58,4 +58,8 @@ class Libro{
     get getAutores(){
         return this.autores;
     }
+
+    get agotado(){
+        return this.cantidad == 0;
+    }
 }

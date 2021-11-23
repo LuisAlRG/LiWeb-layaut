@@ -43,29 +43,43 @@
                 </form>
             </div>
             <div>
-                <form action="autorBusqueda" method="post">
+                <form action="buscarAutorLib" method="post">
                     <label for="autorID">Clave Autor</label> 
-                    <input type="number" name="autorID" id="autorID">
+                    <input type="number" name="autorID" id="autorID"
+                        ng-model="autorID"
+                    >
                     <label for="autorNombre">Nombre(s)</label>
-                    <input type="text" name="autorNombre" id="autorNombre"> 
+                    <input type="text" name="autorNombre" id="autorNombre"
+                        ng-model="autorNombre"
+                    > 
                     <label for="autorApellido">Apellido(s)</label>
-                    <input type="text" name="autorApellido" id="autorApellido"> 
+                    <input type="text" name="autorApellido" id="autorApellido"
+                        ng-model="autorApellido"
+                    > 
                 </form>
             </div>
             <div>
-                <form action="editorialBusqueda" method="post">
+                <form action="buscarEditorialLib" method="post">
                     <label for="editoID">Clave Editorial</label>
-                    <input type="number" name="editoID" id="editoID">
+                    <input type="number" name="editoID" id="editoID"
+                        ng-model="editoID"
+                    >
                     <label for="editoNombre">Nombre</label> 
-                    <input type="text" name="editoNombre" id="editoNombre"> 
+                    <input type="text" name="editoNombre" id="editoNombre"
+                        ng-model="editoNombre"
+                    > 
                 </form>
             </div>
             <div>
-                <form action="generoBusqueda" method="post">
+                <form action="buscarGeneroLib" method="post">
                     <label for="generoID">Clave Genero</label>
-                    <input type="number" name="generoID" id="generoID">
+                    <input type="number" name="generoID" id="generoID"
+                        ng-model="generoID"
+                    >
                     <label for="generoNombre">Nombre</label> 
-                    <input type="text" name="generoNombre" id="generoNombre"> 
+                    <input type="text" name="generoNombre" id="generoNombre"
+                        ng-model="generoNombre"
+                    > 
                 </form>
             </div>
         </accionesInputs>
@@ -112,6 +126,12 @@
                     <input type="number" name="libroCantidadM" id="libroCantidadM">
                 </div>
                 <div>
+                    <label for="claveEditorialM">Clave editorial</label>
+                    <input type="number" name="claveEditorialM" id="claveEditorialM">
+                    <label for="nombreEditorialM">Editorial (Nombre)</label>
+                    <input type="text" name="nombreEditorialM" id="nombreEditorialM">
+                </div>
+                <div>
                     <button type="submit">Aplicar Modificacion</button>
                 </div>
             </div>
@@ -146,6 +166,58 @@
                     </div>
                 </section>
             </div>
+            <div class="pieTabla">
+                <div>Buscar clave</div>
+                <div>Nombre</div>
+                <div>Apellido</div>
+                <div>Aderrir</div>
+                <form name="aderirAutorOnLibro" id="aderirAutorOnLibro" action="aderirAutorOnLibro" method="post">
+                    <div>
+                        <input type="number" name="idAutorB" id="idAutorB" 
+                            ng-model="idAutorB"
+                            ng-keyup="onDesplegarClaveAutor($event,idAutorB)"
+                        >
+                    </div>
+                    <div>
+                        <input type="text" list="autorNamesFound" name="nombreAutorB" id="nombreAutorB" required 
+                            ng-model = "nombreAutorB"
+                            ng-keyup= "onBuscarAutorNombre(nombreAutorB,$event)"
+                        >
+                        <datalist id="autorNamesFound" >
+                            <option
+                                ng-repeat="autor in listBusqAutor" 
+                                value="{{autor.nombre}}"
+                                
+                            > {{autor.nombre}} {{autor.apellido}} </option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <input type="text" list="autorApellFound" name="apellidoAutorB" id="apellidoAutorB" required 
+                            ng-model = "apellidoAutorB"
+                            ng-keyup="onBuscarAutorApellido(apellidoAutorB,$event)"
+                        >
+                        <datalist id="autorApellFound">
+                            <option
+                                ng-repeat="autor in listBusqAutor"
+                                value="{{autor.apellido}}"
+                            > {{autor.nombre}} {{autor.apellido}}  </option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>
+                            <g class="cruzNegraG">
+                                <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
+                                <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            </g>
+                            <g class="cruzBlancaG">
+                                <rect x="42" y="17" width="15" height="65" fill="white"/>
+                                <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                            </g>
+                        </svg>
+                    </div>
+                </form>
+            </div>
         </tbiAutor>
 
         <tbiEditorial>
@@ -172,6 +244,41 @@
                         </section>
                     </div>
                 </section>
+            </div>
+            <div class="pieTabla">
+                <div>Buscar clave</div>
+                <div>Editorial</div>
+                <div>Aderrir</div>
+                <form action="aderirEditorialOnLibro">
+                    <div>
+                        <input type="number" name="idEditorialB" id="idEditorialB">
+                    </div>
+                    <div>
+                        <input type="text" list="editorialNamesFound" name="nombreEditorialB" id="nombreEditorialB" required 
+                            ng-model = "nombreEditorialB"
+                            ng-keyup="onBuscarEditorial(nombreEditorialB,$event)"
+                        >
+                        <datalist id="editorialNamesFound">
+                            <option
+                                ng-repeat="editorial in listBusqEditorial" 
+                                value="{{editorial.nombre}}"
+                            >
+                        </datalist>
+                    </div>
+                    <div>
+                        <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>
+                            <g class="cruzNegraG">
+                                <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
+                                <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            </g>
+                            <g class="cruzBlancaG">
+                                <rect x="42" y="17" width="15" height="65" fill="white"/>
+                                <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                            </g>
+                        </svg>
+                    </div>
+                </form>
             </div>
         </tbiEditorial>
 
@@ -200,6 +307,41 @@
                     </div>
                 </section>
             </div>
+            <div class="pieTabla">
+                <div>Buscar clave</div>
+                <div>Genero</div>
+                <div>Aderrir</div>
+                <form name="aGeneroOnLibro" id="aGeneroOnLibro" action="aderirGeneroOnLibro">
+                    <div>
+                        <input type="number" name="idGeneroB" id="idGeneroB">
+                    </div>
+                    <div>
+                        <input type="text" list="generoNamesFound" name="nombreGeneroB" id="nombreGeneroB" required 
+                            ng-model = "nombreGeneroB"
+                            ng-keyup="onBuscarGenero(nombreGeneroB,$event)"
+                        >
+                        <datalist id="generoNamesFound">
+                            <option
+                                ng-repeat="genero in listBusqGenero" 
+                                value="{{genero.nombre}}"
+                            >
+                        </datalist>
+                    </div>
+                    <div>
+                        <svg  viewBox="-10 -10 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="fondoG" cx="50" cy="50" r="45" fill="#008000"/>
+                            <g class="cruzNegraG">
+                                <rect x="44" y="20" width="15" height="65" fill="black" fill-opacity="0.4"/>
+                                <rect x="85" y="45" width="15" height="65" transform="rotate(90 85 45)" fill="black" fill-opacity="0.4"/>
+                            </g>
+                            <g class="cruzBlancaG">
+                                <rect x="42" y="17" width="15" height="65" fill="white"/>
+                                <rect x="83" y="42" width="15" height="65" transform="rotate(90 83 42)" fill="white"/>
+                            </g>
+                        </svg>
+                    </div>
+                </form>
+            </div>
         </tbiGeneros>
     </div>
 
@@ -207,9 +349,9 @@
 </body>
 
 <!--script del final-->
-<script src="js/clasesPruebas/Autor.js"></script>
-<script src="js/clasesPruebas/Editorial.js"></script>
-<script src="js/clasesPruebas/Genero.js"></script>
+<script src="js/ClasesLocales/Autor.js"></script>
+<script src="js/ClasesLocales/Editorial.js"></script>
+<script src="js/ClasesLocales/Genero.js"></script>
 <script src="js/mainLibrosMod.js"></script>
 
 

@@ -100,46 +100,55 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
 
+tablaInfo>div{
+    .col-autor{
+        >div:nth-child(1){//Nombre
+            @extend .l5;
+            @extend .m4;
+            @extend .s5;
+        }
+        >div:nth-child(2){//Apellidos
+            @extend .l5;
+            @extend .m5;
+            @extend .s5;
+        }
+        >div:nth-child(3){//Accion
+            @extend .l2;
+            @extend .m3;
+            @extend .s2;
+            svg{
+                max-height: 4em ;
             }
-            >div#pieTabla{
-                >section{
-                    @extend .w3-row;
-                    border-top: 1px solid black;
-                    border-bottom: 1px solid black;
-                    >div{
-                        @extend .w3-col;
-                        overflow: hidden;
-                        input{
-                            width: 90%;
-                        }
-                    }
-                    >.cel1{ //id
-                        @extend .l2;
-                        @extend .m2;
-                        @extend .s2;
-                    }
-                    >.cel2{ //nombre
-                        @extend .l4;
-                        @extend .m4;
-                        @extend .s4;
-                    }
-                    >.cel3{ //apellido
-                        @extend .l5;
-                        @extend .m4;
-                        @extend .s4;
-                        
-                    }
-                    >.cel4{ //acciones
-                        @extend .l1;
-                        @extend .m2;
-                        @extend .s2;
-                        svg{
-                            max-height: 4em ;
-                        }
-                    }
-                }
+        }
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-autor;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
             }
+            @extend .col-autor;
         }
     }
 }

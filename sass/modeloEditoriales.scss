@@ -97,38 +97,49 @@
                     }
                 }
             }
-            >div#pieTabla{
-                >section{
-                    @extend .w3-row;
-                    border-top: 1px solid black;
-                    border-bottom: 1px solid black;
-                    >div{
-                        @extend .w3-col;
-                        overflow: hidden;
-                        input{
-                            width: 90%;
-                        }
-                    }
-                    >.cel1{ //id
-                        @extend .l2;
-                        @extend .m3;
-                        @extend .s2;
-                    }
-                    >.cel2{ //nombre
-                        @extend .l8;
-                        @extend .m6;
-                        @extend .s7;
-                    }
-                    >.cel3{ //acciones
-                        @extend .l2;
-                        @extend .m3;
-                        @extend .s3;
-                        svg{
-                            max-height: 4em ;
-                        }
-                    }
-                }
+        }
+    }
+}
+
+tablaInfo>div{
+    .col-editorial{
+        >div:nth-child(1){//Nombre
+            @extend .l9;
+            @extend .m8;
+            @extend .s9;
+        }
+        >div:nth-child(2){//Accion
+            @extend .l3;
+            @extend .m4;
+            @extend .s3;
+            svg{
+                max-height: 4em ;
             }
+        }
+    }
+    .pieTabla{
+        border-top: 1px solid gray;
+        border-bottom: 1px solid black;
+        @extend .w3-row;
+        >div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @extend .w3-col;
+        }
+        @extend .col-editorial;
+        form{
+            >div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 3.5em;
+                max-height: 5em;
+                text-align: center;
+                @extend .w3-col;
+            }
+            @extend .col-editorial;
         }
     }
 }
